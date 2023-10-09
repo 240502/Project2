@@ -1,0 +1,13 @@
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\bin\Debug\Ứng dụng thi trực tuyến khoa CNTT.exe.config
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\bin\Debug\Ứng dụng thi trực tuyến khoa CNTT.exe
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\bin\Debug\Ứng dụng thi trực tuyến khoa CNTT.pdb
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.AssemblyReference.cache
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.SuggestedBindingRedirects.cache
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng_dụng_thi_trực_tuyến_khoa_CNTT.FrmQL_LopHC.resources
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng_dụng_thi_trực_tuyến_khoa_CNTT.FrmQL_LopHP.resources
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng_dụng_thi_trực_tuyến_khoa_CNTT.FrmMain.resources
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng_dụng_thi_trực_tuyến_khoa_CNTT.Properties.Resources.resources
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.GenerateResource.cache
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.CoreCompileInputs.cache
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.exe
+D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.pdb
