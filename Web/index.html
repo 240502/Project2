@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/Css/style.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.3.0-web/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="frame">
+        <div id="logo-header">
+            <img src="./assets/img/logo-utehy.png" class="logo-img">
+        </div>
+        <nav>
+            <div id="nav-header">
+                <ul class="navs">
+                    <li class="nav-item">
+                        Quản lý sinh viên
+                    </li>
+                    <li class="nav-item">
+                        Quản lý lớp
+                        <ul class="sub-nav">
+                            <li class="sub-item">
+                                <a href="#" id="btnLopHC">Quản lý lớp hành chính</a>
+                                
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" id="btnLopHP">Quản lý lớp học phần</a>
+                            </li>
+                        </ul>
+                    </li>
+                   
+                    <li class="nav-item">
+                        Quản lý câu hỏi
+                    </li>
+                    <li class="nav-item">
+                        Quản lý giảng viên
+                    </li>
+                </ul>
+            
+    
+                <div class="header-group-icon">
+                    <div class="header-account header-icon">
+                        <i class="fa-regular fa-circle-user" style="color: #000000;"></i>
+                        <span>Tài Khoản</span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="form-ql-lop-hc" >
+           
+            <h2 class="title">Quản lý lớp hành chính</h2>
+            <form action="" id="ql-lop-hc">
+               
+              <div class="form-item">
+                  <label for="">Mã lớp:</label>
+                <input type="text" id="ma_lop" name="ma_lop" placeholder="Nhập mã lớp ...">
+              </div>
+              <div class="form-item">
+                  <label for="">Tên lớp:</label>
+                <input type="text" id="ten_lop" name="ten_lop" placeholder="Nhập tên lớp ...">
+              </div>
+              <div class="form-item">
+                  <label for="">Sĩ số:</label>
+                <input type="text" id="si_so" name="si_so" placeholder="Nhập sĩ số ...">
+              </div>
+              <button type="button" class="btnCreate btn">Thêm mới</button>
+            </form>
+            <div class="list-lop">
+                <h2 class="list-title">Danh sách lớp</h2>
+                <div class="search-input-group">
+                    <button type="button" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #0f0f0f;"></i>    
+                    </button>
+                    <input type="text" placeholder="Tìm kiếm" class="search-input">
+                </div>
+                <div class="clear" style="clear: both;"></div>
+                <div class="container">
+                    <ul class="list-header">
+                        <li>Mã lớp</li>
+                        <li>Tên lớp</li>
+                        <li>Sĩ sô</li>
+                        <li>Tác vụ</li>
+                    </ul>
+                    <div class="list-item">
+                        <p class="ma_lop">125211</p>
+                        <p class="ten_lop">Sek 19.1</p>
+                        <p class="Si_so">33</p>
+                        <div class="group-btn">
+                            <div class="group-delete">
+                                <button type="button" class="btnDelete btn">Xóa</button>
+                            </div>
+
+                            <div class="group-delete">
+                                <button type="button" class="btnUpdate btn">Sửa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <p class="ma_lop">125211</p>
+                        <p class="ten_lop">Sek 19.1</p>
+                        <p class="Si_so">33</p>
+                        <div class="group-btn">
+                            <div class="group-delete">
+                                <button type="button" class="btnDelete btn">Xóa</button>
+                            </div>
+
+                            <div class="group-delete">
+                                <button type="button" class="btnUpdate btn">Sửa</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <p class="ma_lop">125211</p>
+                        <p class="ten_lop">Sek 19.1</p>
+                        <p class="Si_so">33</p>
+                        <div class="group-btn">
+                            <div class="group-delete">
+                                <button type="button" class="btnDelete btn">Xóa</button>
+                            </div>
+
+                            <div class="group-delete">
+                                <button type="button" class="btnUpdate btn">Sửa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./assets/Js/main.js"></script>
+</html>
