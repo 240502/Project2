@@ -11,3 +11,16 @@ D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\�
 D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.CoreCompileInputs.cache
 D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.exe
 D:\Lập trình ứng dụng winform\Ứng dụng thi trực tuyến khoa CNTT\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.pdb
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\bin\Debug\Ứng dụng thi trực tuyến khoa CNTT.exe.config
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\bin\Debug\Ứng dụng thi trực tuyến khoa CNTT.exe
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\bin\Debug\Ứng dụng thi trực tuyến khoa CNTT.pdb
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.AssemblyReference.cache
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.SuggestedBindingRedirects.cache
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng_dụng_thi_trực_tuyến_khoa_CNTT.FrmQL_LopHC.resources
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng_dụng_thi_trực_tuyến_khoa_CNTT.FrmQL_LopHP.resources
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng_dụng_thi_trực_tuyến_khoa_CNTT.FrmMain.resources
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng_dụng_thi_trực_tuyến_khoa_CNTT.Properties.Resources.resources
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.GenerateResource.cache
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.csproj.CoreCompileInputs.cache
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.exe
+D:\Project_2\Ứng dụng thi trực tuyến khoa CNTT\obj\Debug\Ứng dụng thi trực tuyến khoa CNTT.pdb
