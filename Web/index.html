@@ -53,8 +53,17 @@
            
             <h2 class="title">Quản lý lớp hành chính</h2>
             <form action="" id="ql-lop-hc">
-               
+               <div class="form-item">
+                    <label for="">Danh sách khoa</label>
+                    <select id="listKhoa">
+                        <option value="CNTT">Công nghệ thông tin</option>
+                        <option value="Đ-ĐT">Điên - Điện tử</option>
+                        <option value="M-TT">Công nghệ may và thời trang</option>
+                        <option value="NN">Ngoại ngữ</option>
+                  </select>
+               </div>
               <div class="form-item">
+
                   <label for="">Mã lớp:</label>
                 <input type="text" id="ma_lop" name="ma_lop" placeholder="Nhập mã lớp ...">
               </div>
@@ -77,56 +86,31 @@
                     <input type="text" placeholder="Tìm kiếm" class="search-input">
                 </div>
                 <div class="clear" style="clear: both;"></div>
+                <ul class="list-header">
+                    <li>Mã lớp</li>
+                    <li>Tên lớp</li>
+                    <li>Sĩ sô</li>
+                    <li>Tác vụ</li>
+                </ul>
                 <div class="container">
-                    <ul class="list-header">
-                        <li>Mã lớp</li>
-                        <li>Tên lớp</li>
-                        <li>Sĩ sô</li>
-                        <li>Tác vụ</li>
-                    </ul>
-                    <div class="list-item">
-                        <p class="ma_lop">125211</p>
-                        <p class="ten_lop">Sek 19.1</p>
-                        <p class="Si_so">33</p>
-                        <div class="group-btn">
-                            <div class="group-delete">
-                                <button type="button" class="btnDelete btn">Xóa</button>
-                            </div>
-
-                            <div class="group-delete">
-                                <button type="button" class="btnUpdate btn">Sửa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <p class="ma_lop">125211</p>
-                        <p class="ten_lop">Sek 19.1</p>
-                        <p class="Si_so">33</p>
-                        <div class="group-btn">
-                            <div class="group-delete">
-                                <button type="button" class="btnDelete btn">Xóa</button>
-                            </div>
-
-                            <div class="group-delete">
-                                <button type="button" class="btnUpdate btn">Sửa</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <p class="ma_lop">125211</p>
-                        <p class="ten_lop">Sek 19.1</p>
-                        <p class="Si_so">33</p>
-                        <div class="group-btn">
-                            <div class="group-delete">
-                                <button type="button" class="btnDelete btn">Xóa</button>
-                            </div>
-
-                            <div class="group-delete">
-                                <button type="button" class="btnUpdate btn">Sửa</button>
-                            </div>
-                        </div>
-                    </div>
+                   
+                    
                 </div>
+                <ul class="list-page">
+                    <li class="item page-prev">
+                        <button type="button" id="btn-page-prev" style="cursor: pointer;">
+                            <i class="fa-solid fa-chevron-left" style="color: #000000;"></i>
+                        </button>
+                    </li>
+                    <div style="display: inherit; ">
+
+                    </div>
+                    <li class="item page-next">
+                        <button type="button" id="btn-page-next" style="cursor: pointer;">
+                            <i class="fa-solid fa-chevron-right" style="color: #000000;"></i>
+                        </button>
+                    </li>
+                </ul>
                </div>
             </div>
         </div>

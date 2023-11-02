@@ -1,0 +1,17 @@
+D:\Project_2\API\Business\bin\Debug\net6.0\Business.deps.json
+D:\Project_2\API\Business\bin\Debug\net6.0\Business.dll
+D:\Project_2\API\Business\bin\Debug\net6.0\Business.pdb
+D:\Project_2\API\Business\bin\Debug\net6.0\DataAccess.dll
+D:\Project_2\API\Business\bin\Debug\net6.0\Model.dll
+D:\Project_2\API\Business\bin\Debug\net6.0\DataAccess.pdb
+D:\Project_2\API\Business\bin\Debug\net6.0\Model.pdb
+D:\Project_2\API\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+D:\Project_2\API\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project_2\API\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+D:\Project_2\API\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+D:\Project_2\API\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+D:\Project_2\API\Business\obj\Debug\net6.0\Business.csproj.CopyComplete
+D:\Project_2\API\Business\obj\Debug\net6.0\Business.dll
+D:\Project_2\API\Business\obj\Debug\net6.0\refint\Business.dll
+D:\Project_2\API\Business\obj\Debug\net6.0\Business.pdb
+D:\Project_2\API\Business\obj\Debug\net6.0\ref\Business.dll

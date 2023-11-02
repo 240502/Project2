@@ -1,0 +1,12 @@
+D:\Project_2\API\Model\bin\Debug\net6.0\Model.deps.json
+D:\Project_2\API\Model\bin\Debug\net6.0\Model.dll
+D:\Project_2\API\Model\bin\Debug\net6.0\Model.pdb
+D:\Project_2\API\Model\obj\Debug\net6.0\Model.csproj.AssemblyReference.cache
+D:\Project_2\API\Model\obj\Debug\net6.0\Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project_2\API\Model\obj\Debug\net6.0\Model.AssemblyInfoInputs.cache
+D:\Project_2\API\Model\obj\Debug\net6.0\Model.AssemblyInfo.cs
+D:\Project_2\API\Model\obj\Debug\net6.0\Model.csproj.CoreCompileInputs.cache
+D:\Project_2\API\Model\obj\Debug\net6.0\Model.dll
+D:\Project_2\API\Model\obj\Debug\net6.0\refint\Model.dll
+D:\Project_2\API\Model\obj\Debug\net6.0\Model.pdb
+D:\Project_2\API\Model\obj\Debug\net6.0\ref\Model.dll
