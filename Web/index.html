@@ -12,106 +12,124 @@
         <div id="logo-header">
             <img src="./assets/img/logo-utehy.png" class="logo-img">
         </div>
-        <nav>
-            <div id="nav-header">
-                <ul class="navs">
-                    <li class="nav-item">
-                        Quản lý sinh viên
-                    </li>
-                    <li class="nav-item">
-                        Quản lý lớp
-                        <ul class="sub-nav">
-                            <li class="sub-item">
-                                <a href="#" id="btnLopHC">Quản lý lớp hành chính</a>
-                                
+        <div class="main-form">
+            <div class="form-us">
+                <nav aria-label="breadcrumb" >
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="./index.html">Trang chủ</a></li>
+                      <li class="line"></li>
+                      <li class="breadcrumb-item active" aria-current="page">Tài khoản</li>
+                    </ol>
+                </nav>
+                <div class="content">
+                    <div class="nav" style="">
+                        <ul class="list-nav">
+                            <li class="nav-item">
+                                <a style="color:#000;text-decoration: none;" href="#"> Thông tin tài khoản</a>
                             </li>
-                            <li class="sub-item">
-                                <a href="#" id="btnLopHP">Quản lý lớp học phần</a>
+                            <li class="nav-item">
+                                <a style="color:#000;text-decoration: none;" href="#"> Bảng điều khiển</a>
                             </li>
+                            <li class="nav-item " id="btnLopHP">
+                                <a style="color:#000;text-decoration: none;" href="#" > Quản lý lớp học phần</a>
+                            </li>
+                            <li class="nav-item active"  id="btnLopHC">
+                                <a style="color:#000;text-decoration: none;" href="#" > Quản lý lớp hành chính</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="color:#000;text-decoration: none;" href="#"> Quản lý lớp sinh viên</a>
+                            </li>
+                           
+                           
                         </ul>
-                    </li>
-                   
-                    <li class="nav-item">
-                        Quản lý câu hỏi
-                    </li>
-                    <li class="nav-item">
-                        Quản lý giảng viên
-                    </li>
-                </ul>
-            
-    
-                <div class="header-group-icon">
-                    <div class="header-account header-icon">
-                        <i class="fa-regular fa-circle-user" style="color: #000000;"></i>
-                        <span>Tài Khoản</span>
-                    </div>
                     </div>
                 </div>
+               
             </div>
-        </nav>
-        <div class="form-ql-lop-hc" >
-           
-            <h2 class="title">Quản lý lớp hành chính</h2>
-            <form action="" id="ql-lop-hc">
-               <div class="form-item">
-                    <label for="">Danh sách khoa</label>
-                    <select id="listKhoa">
-                        <option value="CNTT">Công nghệ thông tin</option>
-                        <option value="Đ-ĐT">Điên - Điện tử</option>
-                        <option value="M-TT">Công nghệ may và thời trang</option>
-                        <option value="NN">Ngoại ngữ</option>
-                  </select>
-               </div>
-              <div class="form-item">
+            <div class="nav-item logout active">
+                Đăng xuất
+            </div>
+            <div class="account-main" style="flex-grow: 1;">
+            <!-- Begin form thông tin tài khoản người dùng -->
+                <div class="form_info_us opened form" data-id="0" >
+                    <h2 class="title">Thông tin tài khoản</h2>
+                    <div class="form-group">
+                        <h3 class="label">
+                           Khoa
+                        </h3>
+                        <select name="makhoa" id="makhoa">
 
-                  <label for="">Mã lớp:</label>
-                <input type="text" id="ma_lop" name="ma_lop" placeholder="Nhập mã lớp ...">
-              </div>
-              <div class="form-item">
-                  <label for="">Tên lớp:</label>
-                <input type="text" id="ten_lop" name="ten_lop" placeholder="Nhập tên lớp ...">
-              </div>
-              <div class="form-item">
-                  <label for="">Sĩ số:</label>
-                <input type="text" id="si_so" name="si_so" placeholder="Nhập sĩ số ...">
-              </div>
-              <button type="button" class="btnCreate btn">Thêm mới</button>
-            </form>
-            <div class="list-lop">
-                <h2 class="list-title">Danh sách lớp</h2>
-                <div class="search-input-group">
-                    <button type="button" class="search-btn">
-                        <i class="fa-solid fa-magnifying-glass" style="color: #0f0f0f;"></i>    
-                    </button>
-                    <input type="text" placeholder="Tìm kiếm" class="search-input">
-                </div>
-                <div class="clear" style="clear: both;"></div>
-                <ul class="list-header">
-                    <li>Mã lớp</li>
-                    <li>Tên lớp</li>
-                    <li>Sĩ sô</li>
-                    <li>Tác vụ</li>
-                </ul>
-                <div class="container">
-                   
-                    
-                </div>
-                <ul class="list-page">
-                    <li class="item page-prev">
-                        <button type="button" id="btn-page-prev" style="cursor: pointer;">
-                            <i class="fa-solid fa-chevron-left" style="color: #000000;"></i>
-                        </button>
-                    </li>
-                    <div style="display: inherit; ">
-
+                        </select>
                     </div>
-                    <li class="item page-next">
-                        <button type="button" id="btn-page-next" style="cursor: pointer;">
-                            <i class="fa-solid fa-chevron-right" style="color: #000000;"></i>
+                    <div class="form-group">
+                        <h3 class="label">
+                            Mã lớp
+                        </h3>
+                        <input type="text" id="malop" class="malop">
+                    </div>
+                    <div class="form-group">
+                        <h3 class="label">
+                            Tên lớp
+                        </h3>
+                       <input type="text" id="tenlop" class="tenlop">
+                    </div>
+                    <div class="form-group">
+                        <h3 class="label">
+                            Sĩ số 
+                        </h3>
+                       <input type="text" id="siSo" class="tenlop">
+                    </div>
+                    <div class="form-button">
+                        <button class="btnSave active">Lưu thay đổi</button>
+                    </div>
+                </div>
+                <div class="list_data" style="margin-top: 50px;position:relative">
+               
+                    <h3 class="title">Danh sách lớp</h3>
+                    <div class="search-input-group">
+                        <button type="button" class="search-btn">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #0f0f0f;"></i>    
                         </button>
-                    </li>
-                </ul>
-               </div>
+                        <input type="text" placeholder="Tìm kiếm" class="search-input">
+                    </div>
+                    <div class="clear" style="clear: both;">
+    
+                    </div>
+                    <table>
+                        <thead class="tb-header">
+                            <td>Khoa</td>
+                           <td>
+                               Mã lớp
+                           </td>
+                           <td>
+                              Tên lớp
+                           </td>
+                           <td>
+                              Sĩ số
+                           </td>
+                           <td>Chức năng</td>
+                        </thead>
+                        <tbody>
+    
+                        </tbody>
+                      
+                    </table>
+                    <ul class="list-page">
+                        <li class="item page-prev">
+                            <button type="button" id="btn-page-prev" style="cursor: pointer;">
+                                <i class="fa-solid fa-chevron-left" style="color: #000000;"></i>
+                            </button>
+                        </li>
+                        <div style="display: inherit; ">
+                        
+                        </div>
+                        <li class="item page-next">
+                            <button type="button" id="btn-page-next" style="cursor: pointer;">
+                                <i class="fa-solid fa-chevron-right" style="color: #000000;"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

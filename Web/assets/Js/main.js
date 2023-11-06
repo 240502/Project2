@@ -1,18 +1,44 @@
 const navLopHp = $("#btnLopHP");
 const navLopHc = $("#btnLopHC");
-const inputMaLop = $("#ma_lop");
-const inputTenLop = $("#ten_lop");
-const inputSiSo = $("#si_so");
-const listKhoa = $("#listKhoa");
-const btnCreate = $('.btnCreate')
+const inputMaLop = $("#malop");
+const inputTenLop = $("#tenlop");
+const inputSiSo = $("#siSo");
+const makhoa = $("#makhoa");
+const btnCreate = $('.btnSave')
+
+isCreate =true;
+isUpdate = false;
 
 let thisPage = 1;
 let pageSize = 10;
 function start(){
-    handleCreateLop();
+    GetKhoa();
     handleGetLop();
+    $(".title").html("")
+    $(".title").html("Quản lý lớp hành chính")
 }
 
+
+
+function GetKhoa(){
+  $.get("https://localhost:7217/api/Khoa/GetListKhoa")
+  .done(res=>{
+    console.log(res);
+    renderListKhoa(res);
+  })
+  .fail(err=>{
+    console.log(err);
+  })
+}
+function renderListKhoa(khoas){
+  var html = khoas.map(khoa=>{
+    return `
+      
+      <option value="${khoa["maKhoa"]}">${khoa["tenKhoa"]}</option>
+    `
+  })
+  $("#makhoa").html(html)
+}
 function handleGetLop(){
     const data = {
         pageSize : pageSize,
@@ -36,19 +62,19 @@ function clearData(){
     inputTenLop.val("");
     inputSiSo.val("");
 }
-function handleCreateLop(){
-    btnCreate.click(()=>{
-        
-        var data = {
-            maLop: inputMaLop.val(),
-            maKhoa: listKhoa.val(),
-            tenLop: inputMaLop.val(),
-            siSo: inputSiSo.val()
-        }
-        CreateLop(data)
-     })
+btnCreate.click(()=>{
+    
+    var data = {
+        maLop: inputMaLop.val(),
+        maKhoa: makhoa.val(),
+        tenLop: inputMaLop.val(),
+        siSo: inputSiSo.val()
+    }
+    if(isCreate){
+      CreateLop(data)
+    }
+})
   
-}
 function CreateLop(data) {
     $.post({
         url:"https://localhost:7217/api/Lop/Create_Lop",
@@ -58,13 +84,25 @@ function CreateLop(data) {
         if(res >=1)
         {
          alert("Thêm thành công")
-         handleCreateLop();
+         handleGetLop();
+
          clearData();
         }
         else alert("Thêm thất bại")
     })
 }
 
+function DeleteLop(malop){
+  $.ajax({
+      url: "https://localhost:7217/api/Lop/Delete_Lop"+'?malop='+malop,
+      type: 'DELETE',
+      contentType:"application/json;"
+  }).done(res=>{
+      alert("Xóa thành công")
+      handleGetLop();
+
+  });
+}
 navLopHc.click(()=>{
     $(".title").html("")
     $(".title").html("Quản lý lớp hành chính")
@@ -72,7 +110,7 @@ navLopHc.click(()=>{
 });
 navLopHp.click(()=>{
     $(".title").html("")
-    $(".title").html("Quản lý lớp học phầm")
+    $(".title").html("Quản lý lớp học phần")
 
 });
 
@@ -82,30 +120,39 @@ function renderLop(lops){
     renderListPage(countPage)
     var html = lops["data"].map(lop=>{
         return `
-            <div class="list-item">
-                <p class="ma_lop">${lop["maLop"]}</p>
-                <p class="ten_lop">${lop["tenLop"]}</p>
-                <p class="Si_so">${lop["siSo"]}</p>
-                <div class="group-btn">
-                    <div class="group-delete">
-                        <button type="button" class="btnDelete btn">Xóa</button>
-                    </div>
+        <tr class="tb-content" data-id = "${lop["maLop"]}">
+          <td class="maKhoa" >
+            ${lop["maKhoa"]}
+          </td>
+          <td class="malop" >
+              ${lop["maLop"]}
+          </td>
+          <td class="tenlop">
+              ${lop["tenLop"]}
+          </td>
+          <td class="siSo">
+             ${lop["siSo"]}
+          </td>
+          <td>
+               <div class="group-btn">
+                   <div class="group-delete">
+                       <button type="button" class="btnDelete btn" onclick = "DeleteLop(${"'"+(lop["maLop"])+"'"})">Xóa</button>
+                   </div>
 
-                    <div class="group-delete">
-                        <button type="button" class="btnUpdate btn">Sửa</button>
-                    </div>
-                </div>
-            </div>
+                   <div class="group-update">
+                       <button type="button" class="btnUpdate btn" onclick = "fillToInput(${lop["maLop"]})">Sửa</button>
+                   </div>
+               </div>
+          </td>
+       </tr>
         `
     })
-    $(".container").html(html.join(''))
+    $("tbody").html(html.join(''))
 }
 
 function renderListPage(count){
     $(".list-page div").html("")
     var html = ""
-    console.log(count)
-    console.log(thisPage)
 
     if(count > 1){
       if(thisPage<count )

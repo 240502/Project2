@@ -40,7 +40,7 @@ As
 	Begin Declare @RecordCount int
 		If(@pageSize > 0)
 		Begin
-			Select (ROW_NUMBER() Over(Order By SiSo)) as RowNumber,
+			Select (ROW_NUMBER() Over(Order By SiSo desc)) as RowNumber,
 			*
 			Into #Result1
 			From Lop
