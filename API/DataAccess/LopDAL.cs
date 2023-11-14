@@ -94,5 +94,34 @@ namespace DataAccess
                 throw ex;
             }
         }
+
+        public List<LopModel> SearchLop(string value, out int total,int pageIndex, int pageSize)
+        {
+            try
+            {
+                total = 0;
+                DataTable tb = helper.ExcuteReader("Pro_Search_Lop","@value","@pageIndex","@pageSize",value,pageIndex,pageSize);
+                if (tb != null)
+                {
+                    List<LopModel> list = new List<LopModel>();
+                    total = int.Parse(tb.Rows[0]["RecordCount"].ToString());
+                    for (int i = 0; i < tb.Rows.Count; i++)
+                    {
+                        LopModel lop = new LopModel();
+                        lop.MaLop = tb.Rows[i]["MaLop"].ToString();
+                        lop.MaKhoa = tb.Rows[i]["MaKhoa"].ToString();
+                        lop.TenLop = tb.Rows[i]["TenLop"].ToString();
+                        lop.SiSo = int.Parse(tb.Rows[i]["SiSo"].ToString());
+                        list.Add(lop);
+                    }
+                    return list;
+
+                }
+                else return null;
+            }
+            catch(Exception ex){
+                throw ex;
+            }
+        }
     }
 }

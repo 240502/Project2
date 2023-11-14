@@ -94,5 +94,35 @@ namespace API_Lop.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        [Route("Search_Lop")]
+        [HttpPost]
+        public IActionResult SearchLop([FromBody] Dictionary<string,object> formData)    
+        {
+            try
+            {
+                string value = "";
+                int pageIndex = 0;
+                int pageSize = 0;
+                if(formData.Keys.Contains("value") && !string.IsNullOrEmpty(formData["value"].ToString()))
+                {
+                    value = formData["value"].ToString(); 
+                }
+                if (formData.Keys.Contains("pageIndex") && !string.IsNullOrEmpty(formData["pageIndex"].ToString()))
+                {
+                    pageIndex = int.Parse(formData["pageIndex"].ToString());
+                }
+                if (formData.Keys.Contains("pageSize") && !string.IsNullOrEmpty(formData["pageSize"].ToString()))
+                {
+                    pageSize = int.Parse(formData["pageSize"].ToString());
+                }
+
+                int total = 0;
+                List<LopModel> list = lopBUS.SearchLop(value,out total,pageIndex,pageSize);
+                return list!=null ? Ok(new {data= list, totalItems = total,pageIndex = pageIndex,pageSize = pageSize}) : NotFound();  
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

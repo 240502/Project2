@@ -31,5 +31,9 @@ namespace Business
             int result = lopDAL.Delete(MaLop);
             return result;
         }
+        public List<LopModel> SearchLop(string value,out int total,int pageIndex,int pageSize)
+        {
+            return lopDAL.SearchLop(value, out total,pageIndex,pageSize);
+        }
     }
 }

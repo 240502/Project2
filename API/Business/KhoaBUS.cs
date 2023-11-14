@@ -15,5 +15,9 @@ namespace Business
         {
             return khoaDAL.GetList();
         }
+        public KhoaModel GetByID(string id)
+        {
+            return khoaDAL.GetByID(id);
+        }
     }
 }

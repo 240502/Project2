@@ -37,5 +37,24 @@ namespace DataAccess
                 throw ex;
             }
         }
+        public KhoaModel GetByID(string id)
+        {
+            try
+            {
+                DataTable tb = helper.ExcuteReader("Pro_Get_Khoa_ById","@maKhoa",id);
+                if (tb != null)
+                {
+                        KhoaModel model = new KhoaModel();
+                        model.maKhoa = tb.Rows[0]["MaKhoa"].ToString();
+                        model.tenKhoa = tb.Rows[0]["TenKhoa"].ToString();
+                    return model;
+                }
+                else return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

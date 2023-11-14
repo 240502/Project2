@@ -18,7 +18,7 @@
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="./index.html">Trang chủ</a></li>
                       <li class="line"></li>
-                      <li class="breadcrumb-item active" aria-current="page">Tài khoản</li>
+                      <li class="breadcrumb-item active" aria-current="page">Quản lý</li>
                     </ol>
                 </nav>
                 <div class="content">
@@ -77,14 +77,13 @@
                         <h3 class="label">
                             Sĩ số 
                         </h3>
-                       <input type="text" id="siSo" class="tenlop">
+                       <input type="text" id="siSo" class="siSo">
                     </div>
                     <div class="form-button">
-                        <button class="btnSave active">Lưu thay đổi</button>
+                        <button class="btnSave active">Thêm mới</button>
                     </div>
                 </div>
-                <div class="list_data" style="margin-top: 50px;position:relative">
-               
+                <div class="list_data" style="margin-top: 50px">
                     <h3 class="title">Danh sách lớp</h3>
                     <div class="search-input-group">
                         <button type="button" class="search-btn">
@@ -112,8 +111,25 @@
                         <tbody>
     
                         </tbody>
-                      
+                        
                     </table>
+                    <div class="model">
+                        <div class="model__delete container">
+                            <div class="model__title">
+                               <h3> Bạn chắc chắn muốn xóa bỏ lớp này?</h3>
+                            </div>
+                            <div class="model__content">
+                                <div class="content__text">Lớp 125211</div>
+                            </div>
+                            <div class="model__action">
+                                <div class="group__btn">
+                                    <button type="button" id="noBtn">Không</button>
+                                    <button type="button" id="yesBtn">Có</button>
+                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <ul class="list-page">
                         <li class="item page-prev">
                             <button type="button" id="btn-page-prev" style="cursor: pointer;">
@@ -133,6 +149,7 @@
             </div>
         </div>
     </div>
+   
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./assets/Js/main.js"></script>

@@ -23,5 +23,21 @@ namespace API_Lop.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [Route("GetKhoaByID")]
+        [HttpGet]
+        public IActionResult GetKhoaById(string id)
+        {
+            try
+            {
+                KhoaModel khoa = khoabus.GetByID(id);
+                return khoa != null ? Ok(khoa) : NotFound();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
