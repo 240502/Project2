@@ -4,153 +4,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/Css/style.css">
-    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.3.0-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <title>Document</title>
 </head>
 <body>
-    <div id="frame">
-        <div id="logo-header">
-            <img src="./assets/img/logo-utehy.png" class="logo-img">
-        </div>
-        <div class="main-form">
-            <div class="form-us">
-                <nav aria-label="breadcrumb" >
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="./index.html">Trang chủ</a></li>
-                      <li class="line"></li>
-                      <li class="breadcrumb-item active" aria-current="page">Quản lý</li>
-                    </ol>
-                </nav>
-                <div class="content">
-                    <div class="nav" style="">
-                        <ul class="list-nav">
-                            <li class="nav-item">
-                                <a style="color:#000;text-decoration: none;" href="#"> Thông tin tài khoản</a>
+    <header>
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="#" class="logo__utehy">
+                    <img src="./assets/img/logo-utehy.png" alt="">
+                </a>
+                <a href="#" class="logo__upm">
+                    <img src="./assets/img/upm_logo.png" alt="">
+                </a>
+            </div>
+            <div class="header__title">
+                <h3 class="title">
+                    Quản trị hệ thống
+                </h3>
+            </div>
+            <div class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#">
+                            Thí sinh
+                            <span class="nav__item__icon">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </a>
+                       
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">
+                            Ngân hàng câu hỏi
+                            <span class="nav__item__icon">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </a>
+                       
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">
+                            Đề thi
+                            <span class="nav__item__icon">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </a>
+                       
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">
+                            Giao đề thi
+                            <span class="nav__item__icon">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </a>
+                      
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">
+                            Lớp
+                            <span class="nav__item__icon">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </a>
+                    
+                        <ul class="sub__nav">
+                            <li>
+                                <a href="#">
+                                    Lớp hành chính
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a style="color:#000;text-decoration: none;" href="#"> Bảng điều khiển</a>
+                            <li>
+                                <a href="#">
+                                    Lớp học phần
+                                </a>
                             </li>
-                            <li class="nav-item " id="btnLopHP">
-                                <a style="color:#000;text-decoration: none;" href="#" > Quản lý lớp học phần</a>
-                            </li>
-                            <li class="nav-item active"  id="btnLopHC">
-                                <a style="color:#000;text-decoration: none;" href="#" > Quản lý lớp hành chính</a>
-                            </li>
-                            <li class="nav-item">
-                                <a style="color:#000;text-decoration: none;" href="#"> Quản lý lớp sinh viên</a>
-                            </li>
-                           
-                           
                         </ul>
-                    </div>
-                </div>
-               
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">
+                            Tài khoản
+                            <span class="nav__item__icon">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </span>
+                        </a>
+                       
+                    </li>
+                    <li class="nav__item">
+                        <a href="#">
+                            Thoát
+                        </a>
+                    </li>
+                 
+                </ul>
             </div>
-            <div class="nav-item logout active">
-                Đăng xuất
-            </div>
-            <div class="account-main" style="flex-grow: 1;">
-            <!-- Begin form thông tin tài khoản người dùng -->
-                <div class="form_info_us opened form" data-id="0" >
-                    <h2 class="title">Thông tin tài khoản</h2>
-                    <div class="form-group">
-                        <h3 class="label">
-                           Khoa
-                        </h3>
-                        <select name="makhoa" id="makhoa">
-
-                        </select>
+        </div>
+    </header>
+    <main>
+        <div class="main__container">
+            <div class="form">
+                <h3 class="form__title">
+                    Quản lý lớp
+                </h3>
+                <form action="" class="form__main">
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Mã lớp:
+                        </label>
+                        <input type="text" id="malop" placeholder="Nhập mã lớp">
                     </div>
-                    <div class="form-group">
-                        <h3 class="label">
-                            Mã lớp
-                        </h3>
-                        <input type="text" id="malop" class="malop">
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Tên lớp:
+                        </label>
+                        <input type="text" id="malop" placeholder="Nhập tên lớp">
                     </div>
-                    <div class="form-group">
-                        <h3 class="label">
-                            Tên lớp
-                        </h3>
-                       <input type="text" id="tenlop" class="tenlop">
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Sĩ số:
+                        </label>
+                        <input type="text" id="malop" placeholder="Nhập sĩ số">
                     </div>
-                    <div class="form-group">
-                        <h3 class="label">
-                            Sĩ số 
-                        </h3>
-                       <input type="text" id="siSo" class="siSo">
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Giáo viên chủ nhiệm:
+                        </label>
+                        <input type="text" id="malop" placeholder="Nhập giáo viên chủ nhiệm">
                     </div>
-                    <div class="form-button">
-                        <button class="btnSave active">Thêm mới</button>
-                    </div>
-                </div>
-                <div class="list_data" style="margin-top: 50px">
-                    <h3 class="title">Danh sách lớp</h3>
-                    <div class="search-input-group">
-                        <button type="button" class="search-btn">
-                            <i class="fa-solid fa-magnifying-glass" style="color: #0f0f0f;"></i>    
-                        </button>
-                        <input type="text" placeholder="Tìm kiếm" class="search-input">
-                    </div>
-                    <div class="clear" style="clear: both;">
-    
-                    </div>
-                    <table>
-                        <thead class="tb-header">
-                            <td>Khoa</td>
-                           <td>
-                               Mã lớp
-                           </td>
-                           <td>
-                              Tên lớp
-                           </td>
-                           <td>
-                              Sĩ số
-                           </td>
-                           <td>Chức năng</td>
-                        </thead>
-                        <tbody>
-    
-                        </tbody>
-                        
-                    </table>
-                    <div class="model">
-                        <div class="model__delete container">
-                            <div class="model__title">
-                               <h3> Bạn chắc chắn muốn xóa bỏ lớp này?</h3>
-                            </div>
-                            <div class="model__content">
-                                <div class="content__text">Lớp 125211</div>
-                            </div>
-                            <div class="model__action">
-                                <div class="group__btn">
-                                    <button type="button" id="noBtn">Không</button>
-                                    <button type="button" id="yesBtn">Có</button>
+                </form>
                 
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            <div class="list__data">
+                <div class="list__data_container">
+                    <h3 class="list__title">
+                        Danh sách lớp
+                    </h3>
+                    <div class="table__data">
+                        <table>
+                         <thead>
+                            <td>
+                                Mã lớp
+                            </td>
+                            <td>
+                                Tên lớp
+                            </td>
+                            <td>
+                                Sĩ số
+                            </td>
+                            <td>
+                                Giáo viên chủ nhiệm
+                            </td>
+                            <td>
+                                Chức năng
+                            </td>
+                         </thead>
+                         <tbody>
+                            <tr>
+                                <td>
+                                    Mã lớp
+                                </td>
+                                <td>
+                                    Tên lớp
+                                </td>
+                                <td>
+                                    Sĩ số
+                                </td>
+                                <td>
+                                    Giáo viên chủ nhiệm
+                                </td>
+                                <td>
+                                    <button class="btn btnDelete">
+                                        Xóa
+                                    </button>
+                                    <button class="btn btnUpdate">
+                                        Sửa
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mã lớp
+                                </td>
+                                <td>
+                                    Tên lớp
+                                </td>
+                                <td>
+                                    Sĩ số
+                                </td>
+                                <td>
+                                    Giáo viên chủ nhiệm
+                                </td>
+                                <td>
+                                    <button class="btn btnDelete">
+                                        Xóa
+                                    </button>
+                                    <button class="btn btnUpdate">
+                                        Sửa
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Mã lớp
+                                </td>
+                                <td>
+                                    Tên lớp
+                                </td>
+                                <td>
+                                    Sĩ số
+                                </td>
+                                <td>
+                                    Giáo viên chủ nhiệm
+                                </td>
+                                <td>
+                                    <button class="btn btnDelete">
+                                        Xóa
+                                    </button>
+                                    <button class="btn btnUpdate">
+                                        Sửa
+                                    </button>
+                                </td>
+                            </tr>
+                         </tbody>
+                        </table>
                     </div>
-                    <ul class="list-page">
-                        <li class="item page-prev">
-                            <button type="button" id="btn-page-prev" style="cursor: pointer;">
-                                <i class="fa-solid fa-chevron-left" style="color: #000000;"></i>
-                            </button>
-                        </li>
-                        <div style="display: inherit; ">
-                        
-                        </div>
-                        <li class="item page-next">
-                            <button type="button" id="btn-page-next" style="cursor: pointer;">
-                                <i class="fa-solid fa-chevron-right" style="color: #000000;"></i>
-                            </button>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-   
+    </main>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./assets/Js/main.js"></script>
 </html>
