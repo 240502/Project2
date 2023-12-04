@@ -84,6 +84,48 @@ function getLop(data){
         renderLop(res)
     })
 }
+function renderLop(lops){
+  const countPage = Math.ceil(lops["totalItems"]/pageSize)
+  renderListPage(countPage)
+  var html = lops["data"].map(lop=>{
+    getKhoaByID(lop["maKhoa"])
+    var khoa = JSON.parse(localStorage.getItem("KhoaUpdate"));
+      return `
+      <tr class="tb-content" data-id = "${lop["maLop"]}">
+        <td class="maKhoa" data-id="${khoa["maKhoa"]}">
+          ${khoa["tenKhoa"]}
+        </td>
+        <td class="malop" >
+            ${lop["maLop"]}
+        </td>
+        <td class="tenlop">
+            ${lop["tenLop"]}
+        </td>
+        <td class="siSo">
+           ${lop["siSo"]}
+        </td>
+        <td>
+             <div class="group-btn">
+                 <div class="group-delete">
+                     <button type="button" class="btnDelete btn">Xóa</button>
+                 </div>
+
+                 <div class="group-update">
+                     <button type="button" class="btnUpdate btn" onclick = "fillToInput(${lop["maLop"]})">Sửa</button>
+                 </div>
+             </div>
+        </td>
+     </tr>
+      `
+  })
+  $("tbody").html(html.join(''))
+  $(".btnDelete").on("click", ()=>{
+    localStorage.setItem("maLopDelete",JSON.stringify(document.querySelector(".btnDelete").parentElement.parentElement.parentElement.parentElement.dataset.id));
+    openModal();
+  });
+  
+}
+
 start()
 function clearData(){
     inputMaLop.val("");
@@ -140,47 +182,6 @@ navLopHp.click(()=>{
 });
 
 
-function renderLop(lops){
-    const countPage = Math.ceil(lops["totalItems"]/pageSize)
-    renderListPage(countPage)
-    var html = lops["data"].map(lop=>{
-      getKhoaByID(lop["maKhoa"])
-      var khoa = JSON.parse(localStorage.getItem("KhoaUpdate"));
-        return `
-        <tr class="tb-content" data-id = "${lop["maLop"]}">
-          <td class="maKhoa" data-id="${khoa["maKhoa"]}">
-            ${khoa["tenKhoa"]}
-          </td>
-          <td class="malop" >
-              ${lop["maLop"]}
-          </td>
-          <td class="tenlop">
-              ${lop["tenLop"]}
-          </td>
-          <td class="siSo">
-             ${lop["siSo"]}
-          </td>
-          <td>
-               <div class="group-btn">
-                   <div class="group-delete">
-                       <button type="button" class="btnDelete btn">Xóa</button>
-                   </div>
-
-                   <div class="group-update">
-                       <button type="button" class="btnUpdate btn" onclick = "fillToInput(${lop["maLop"]})">Sửa</button>
-                   </div>
-               </div>
-          </td>
-       </tr>
-        `
-    })
-    $("tbody").html(html.join(''))
-    $(".btnDelete").on("click", ()=>{
-      localStorage.setItem("maLopDelete",JSON.stringify(document.querySelector(".btnDelete").parentElement.parentElement.parentElement.parentElement.dataset.id));
-      openModal();
-    });
-    
-}
 
 function renderListPage(count){
     $(".list-page div").html("")
@@ -256,7 +257,6 @@ function hiddeModal(){
   $(".model").removeClass("modal-open");
 }
 btnNo.on("click", ()=>{
-  console.log("oge")
   hiddeModal();
 });
 btnYes.on("click", ()=>{
