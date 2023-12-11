@@ -1,0 +1,168 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color-text:#fff;
+    --color-hover:#427D9D
+}
+.container{
+    width: 60%;
+    margin: 0 auto;
+}
+header{
+    background-color:#1B4242 ;
+    padding:  20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__title{
+    color:#fff;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+.header__nav .list__nav{
+    list-style: none;
+    display: flex;
+    padding: 0 20px;
+
+}
+.header__nav .list__nav .nav__item{
+    padding: 10px 15px;
+    color: #fff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.list__nav .nav__item a{
+    text-decoration: none;
+    color: var(--primary-color-text) ;
+    font-size: 14px;
+}
+.header__nav .list__nav .nav__item:hover{
+    background-color: var(--color-hover);
+}
+.nav__item.active{
+    background-color: var(--color-hover);
+}
+main{
+    margin-top: 50px;
+}
+main .banner{
+    width: 100%;
+
+}
+.banner img{
+    width: 100%;
+}
+.main__content{
+    margin: 20px 0;
+    padding: 50px 25px;
+    box-shadow: 0px 10px 34px -15px rgba(0,0,0,0.24);
+
+}
+.main__content .main__title{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 20px 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+}
+.form__login{
+    width: 60%;
+    margin: 40px auto; 
+    display: flex;
+}
+
+.form__login .form__left{
+    width: 30%;
+    padding: 0 10px;
+    flex-grow: 1;
+    border-right: 1px solid #eee;
+}
+.form__login .form__left .option__role{
+    list-style: none;
+}
+.form__left .option__role .role__item{
+    padding: 15px 10px;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+
+}
+
+.form__left .role__item a{
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form__left .role__item i{
+    color: #000;
+    font-size: 20px;
+}
+.form__left .option__role .role__item:hover{
+    background-color:#EBF3E8 ;
+}
+.role__item.active{
+    background-color:#EBF3E8 ;
+}
+
+
+.form__login .form__right{
+    width: 30%;
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.form__right .form__group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form__group label{
+    margin-bottom: 10px;
+    font-size: 14px;
+
+}
+.form__group input{
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 15px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.form__group .btnLogin{
+    border:none;
+    background-color: #0174BE;
+    color: #fff;
+    padding: 15px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.form__group .btnLogin:hover{
+    opacity: 0.8;
+}
+.form__group .btnGuide{
+    margin-top: 20px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: start;
+    color: #0174BE;
+}
+
+footer{
+    background-color: #ccc;
+    padding: 50px 0;
+}

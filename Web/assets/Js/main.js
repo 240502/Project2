@@ -6,9 +6,13 @@ const inputSiSo = $("#siSo");
 const makhoa = $("#makhoa");
 const btnCreate = $('.btnSave')
 const btnDelete = $('.btnDelete');
-const btnYes=  $('#yesBtn');
-const btnNo=  $('#noBtn');
 const inputSearch = $(".search-input");
+const btnLogin =$(".btnLogOut");
+const btnYes = $(".btnYes");
+const btnNo = $(".btnNo");
+
+const btnActiveFormHandicraft = $(".btnInputHandicraft");
+const btnActivFormInputFile = $(".btnInputFile")
 const navItem = document.querySelectorAll(".list-nav .nav-item")
 let isCreate =true;
 let isUpdate = false;
@@ -16,14 +20,74 @@ let isContent = false;
 let isSearch = false;
 let thisPage = 1;
 let pageSize = 10;
+
+
+
+
+
+
+
 function start(){
-    isContent = true;
-    GetKhoa();
-    handleGetLop();
-    $("h2.title").html("")
-    $("h2.title").html("Quản lý lớp hành chính")
-    handleTextBtnSave();
+  activeFormInputHandicraft();
+    // isContent = true;
+    // GetKhoa();
+    // handleGetLop();
+    // $("h2.title").html("")
+    // $("h2.title").html("Quản lý lớp hành chính")
+    // handleTextBtnSave();
 }
+start();
+btnActiveFormHandicraft.on("click", ()=>{
+  if($(".option__input .active")){
+    $(".option__input .active").removeClass("active");
+  }
+  btnActiveFormHandicraft.addClass("active");
+  CloseFormInputFile();
+  activeFormInputHandicraft();
+});
+
+btnActivFormInputFile.on("click", ()=>{
+  if($(".option__input .active")){
+    $(".option__input .active").removeClass("active");
+  }
+  btnActivFormInputFile.addClass("active");
+  CloseFormInputHandicraft();
+  activeFormInputFile();
+})
+
+function activeFormInputHandicraft (){
+  $(".form__handicraft").addClass("open");
+}
+function activeFormInputFile (){
+  $(".form_inputFile").addClass("open");
+}
+
+function CloseFormInputHandicraft() { 
+  $(".form__handicraft").removeClass("open");
+
+
+}
+function CloseFormInputFile() { 
+  $(".form_inputFile").removeClass("open");
+
+
+}
+
+btnLogin.on("click", ()=>{
+  openModalCofirm("Bạn chắc chắn muốn thoát");
+  console.log("oge")
+});
+
+btnNo.on("click", ()=>{
+  closeModalCofirm();
+});
+
+
+
+btnYes.on("click", ()=>{
+  window.location="./DangNhap.html";
+});
+
 function handleTextBtnSave(){
   if(isCreate)
     {
@@ -126,7 +190,6 @@ function renderLop(lops){
   
 }
 
-start()
 function clearData(){
     inputMaLop.val("");
     inputTenLop.val("");

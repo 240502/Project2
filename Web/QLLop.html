@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/Css/style.css">
+    <link rel="stylesheet" href="./assets/Css/global.css">
+    <link rel="stylesheet" href="./assets/Css/QLLop.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <title>Document</title>
 </head>
@@ -92,9 +94,9 @@
                        
                     </li>
                     <li class="nav__item">
-                        <a href="#">
-                            Thoát
-                        </a>
+                       <a href="#" class="btnLogOut" id="btnLogOut">
+                         Thoát
+                       </a>
                     </li>
                  
                 </ul>
@@ -107,7 +109,15 @@
                 <h3 class="form__title">
                     Quản lý lớp
                 </h3>
-                <form action="" class="form__main">
+                <div class="option__input">
+                    <button class="btnInputHandicraft active" >
+                        Nhập thủ công
+                    </button>
+                    <button class="btnInputFile">
+                        Nhập từ danh sách
+                    </button>
+                </div>
+                <form action="" class="form__handicraft" style="display: none;">
                     <div class="form__group">
                         <label for="" class="form__label">
                             Mã lớp:
@@ -132,8 +142,16 @@
                         </label>
                         <input type="text" id="malop" placeholder="Nhập giáo viên chủ nhiệm">
                     </div>
+                    <div class="form__group">
+                        <button class="btnSave">Lưu</button>
+                    </div>
                 </form>
-                
+                <form action="" class="form_inputFile" style="display: none;">
+                   <div class="form__group">
+                    <input type="file">
+                    <button> Thêm danh sách lớp</button>
+                   </div>
+                </form>
             </div>
             <div class="list__data">
                 <div class="list__data_container">
@@ -141,6 +159,11 @@
                         Danh sách lớp
                     </h3>
                     <div class="table__data">
+                        <div class="form__search">
+                                
+                            <button for="" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <input type="text" name="" id="input__search">
+                        </div>
                         <table>
                          <thead>
                             <td>
@@ -233,5 +256,28 @@
             </div>
         </div>
     </main>
+    <div id="modal-confirm" class="">
+        <div class="modal-confirm-content">
+            <div class="modal-confirm-header">
+                <h3>Thông báo</h3>
+                <div class="modal-confirm-close">
+                    <i class="fa-solid fa-xmark" style="color: #000000;"></i>
+                </div>
+                <h4 class="modal-confirm-title">
+                   
+                </h4>
+              </div>
+              <div class="modal-confirm-action">
+                <button type="button" class="btn btnNo">
+                    Hủy
+                </button>
+                <button type="button" class="btn btnYes" >Đồng ý</button>
+              </div>
+        </div>
+    </div>
 </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="./assets/Js/global.js"></script>
+<script src="./assets/Js/main.js"></script>
