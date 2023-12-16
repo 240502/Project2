@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/Css/global.css">
     <link rel="stylesheet" href="./assets/Css/ChonBaiThi.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.3.0-web/css/all.min.css">
     <title>Document</title>
@@ -55,29 +54,29 @@
                         <div class="form__group">
                             <label for="">Chọn môn thi:</label>
                             <select name="" id="select__subject_test">
-                                <option value="1">
-                                    Cấu trúc dữ liệu vả giải thuật
-                                </option>
-                                <option value="2">Mạng máy tính</option>
+                              
                             </select>
                         </div>
                         <div class="form__group">
                             <label for="">Chọn đề thi:</label>
                             <select name="" id="select__exam__paper">
-                                <option value="1">Đề thi kết thúc học phần</option>
+                               
                             </select>
                         </div>
-                        <div class="form__group">
-                            <label for="">Tổng số câu hỏi:</label>
-                            <input type="text" value="50 câu" readonly>
+                        <div class="form__group number__question">
+                          
                         </div>
-                        <div class="form__group">
-                            <label for="">Thời gian:</label>
-                            <input type="text" value="60 phút" readonly>
+                        <div class="form__group time">
+                            
                         </div>
                         <div class="form__group">
                             <label for="">Mật khẩu đề thi:</label>
-                            <input type="password">
+                            <input type="password" class="input__pass">
+                        </div>
+                        <div class="form__group" style="justify-content: center;margin-top:10px">
+                          <button class="btnEnterExam btn" type="button">
+                            Bắt đầu thi
+                          </button>
                         </div>
                     </form>
                     <div class="block__info">
@@ -92,8 +91,11 @@
             <footer>
             </footer>
         </div>
+       <div id="toast"></div>
+
     </div>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./assets/Js/ChonBaiThi.js"></script>
 </html>

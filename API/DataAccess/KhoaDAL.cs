@@ -24,8 +24,8 @@ namespace DataAccess
                     for (int i = 0; i < tb.Rows.Count; i++)
                     {
                         KhoaModel model = new KhoaModel();
-                        model.maKhoa = tb.Rows[i]["MaKhoa"].ToString();
-                        model.tenKhoa = tb.Rows[i]["TenKhoa"].ToString();
+                        model.MaKhoa = tb.Rows[i]["MaKhoa"].ToString();
+                        model.TenKhoa = tb.Rows[i]["TenKhoa"].ToString();
                         list.Add(model);
                     }
                     return list;
@@ -45,8 +45,8 @@ namespace DataAccess
                 if (tb != null)
                 {
                         KhoaModel model = new KhoaModel();
-                        model.maKhoa = tb.Rows[0]["MaKhoa"].ToString();
-                        model.tenKhoa = tb.Rows[0]["TenKhoa"].ToString();
+                        model.MaKhoa = tb.Rows[0]["MaKhoa"].ToString();
+                        model.TenKhoa = tb.Rows[0]["TenKhoa"].ToString();
                     return model;
                 }
                 else return null;

@@ -13,3 +13,4 @@ D:\Project_2\API\DataAccess\obj\Debug\net6.0\DataAccess.dll
 D:\Project_2\API\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 D:\Project_2\API\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 D:\Project_2\API\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+D:\Project_2\API\DataAccess\obj\Debug\net6.0\DataAccess.sourcelink.json

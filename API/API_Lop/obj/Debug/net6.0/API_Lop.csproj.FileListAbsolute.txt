@@ -42,3 +42,4 @@ D:\Project_2\API\API_Lop\obj\Debug\net6.0\refint\API_Lop.dll
 D:\Project_2\API\API_Lop\obj\Debug\net6.0\API_Lop.pdb
 D:\Project_2\API\API_Lop\obj\Debug\net6.0\API_Lop.genruntimeconfig.cache
 D:\Project_2\API\API_Lop\obj\Debug\net6.0\ref\API_Lop.dll
+D:\Project_2\API\API_Lop\obj\Debug\net6.0\API_Lop.sourcelink.json

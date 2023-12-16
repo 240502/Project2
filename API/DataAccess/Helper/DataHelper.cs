@@ -9,7 +9,7 @@ namespace DataAccess.Helper
 {
     public class DataHelper
     {
-        string ConnectString = @"Data Source =LAPTOP-C3HMM5D6\SQLEXPRESS;Initial Catalog = BTL_NguyenVanSang_12220143_125211; Integrated Security = True";
+        string ConnectString = @"Data Source =LAPTOP-C3HMM5D6\SQLEXPRESS;Initial Catalog = TestOnline__Demo; Integrated Security = True";
         SqlConnection connection;
         public DataHelper()
         {

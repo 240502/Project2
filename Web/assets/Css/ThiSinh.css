@@ -1,0 +1,44 @@
+
+.table__data thead td{
+    background-color:#F3F3F3;
+    width: 16.6666667%;
+    padding: 10px ;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+}
+.form__listdata{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form__listdata div{
+    width: 40%;
+}
+.form__listdata .select__malop{
+    margin-bottom: 20px;
+
+}
+
+.table__data tbody td{
+    width: 16.6666667%;
+    padding: 10px ;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btnDelete{
+    margin-bottom: 5px;
+}
+.listdata__select__malop
+{
+    padding: 10px 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    width: 80%;
+}
+.listdata__select__malop:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25)
+}

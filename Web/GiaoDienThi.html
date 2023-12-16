@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/Css/GiaoDienThi.css">
+    
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.3.0-web/css/all.min.css">
+    <title>Giao diện thi</title>
+</head>
+<body>
+    <div class="main__content">
+       <div class="container">
+            <div class="student__infomation">
+                <h3 class="title">Thông tin thi</h3>
+                <div class="row">
+                   
+                </div>
+            </div>
+            <div class="form__container">
+                <div class="form__left">
+                    <h6 class="form__title">Danh sách câu</h6>
+                    <ul class="question__list">
+                        
+                    </ul>
+                </div>
+
+                <div class="form__right">
+                    <h6 class="form__title">Nội dung câu hỏi</h6>
+                    <div class="question__container">
+                        <div class="question">
+                           
+                        </div>
+                        <div class="block__answer">
+                            <div class="col-2">
+                                <div class="answer__item">
+                                    <input type="radio" name="answer" data-id="answer__1">
+                                    <label for="" class="answer__content"> Đáp án A</label>
+                                </div>
+                                <div class="answer__item">
+                                    <input type="radio" name="answer" data-id="answer__3">
+                                    <label for="" class="answer__content"> Đáp án C</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="answer__item">
+                                    <input type="radio" name="answer" data-id="answer__2">
+                                    <label for="" class="answer__content"> Đáp án B</label>
+                                </div>
+                                <div class="answer__item">
+                                    <input type="radio" name="answer" data-id="answer__4">
+                                    <label for="" class="answer__content"> Đáp án D</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                
+            </div>
+            <div class="block__nav">
+                <div class="Erorr">
+                    <button class="btn btnErorr">Báo lỗi <i class="fa-solid fa-exclamation" style="color: #ffffff;"></i></button>
+                </div>
+                <div class="navs__change__question">
+                    <ul class="navs">
+                        <li>
+                            <button class="btn btnPrevToFirst"> <i class="fa-solid fa-angles-left" style="color: #000000;"></i>Câu đầu</button>
+                        </li>
+                        <li>
+                            <button class="btn btnPrev"> <i class="fa-solid fa-chevron-left" style="color: #000000;"></i>Câu trước</button>
+                        </li>
+                        <li>
+                            <button class="btn btnNext">Câu tiếp<i class="fa-solid fa-chevron-right" style="color: #000000;"></i> </button>
+                        </li>
+                        <li>
+                            <button class="btn btnNextToEnd">Câu cuối <i class="fa-solid fa-angles-right" style="color: #000000;"></i></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btnSubmit">
+                    <button type="button" class="btn" id="btnSubmit">Nộp bài</button>
+                </div>
+            </div>
+       </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./assets/Js/GiaoDienThi.js"></script>
+</html>

@@ -95,6 +95,19 @@ namespace DataAccess
             }
         }
 
+        public int Update(LopModel lop)
+        {
+            try
+            {
+                int reuslt = helper.ExcuteNonQuery("Pro_Update_Lop","@malop","@tenlop","@makhoa","@siso",lop.MaLop,lop.TenLop,lop.MaKhoa,lop.SiSo);
+                return reuslt;
+
+            }catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<LopModel> SearchLop(string value, out int total,int pageIndex, int pageSize)
         {
             try

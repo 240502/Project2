@@ -27,6 +27,21 @@ namespace API_Lop.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [Route("Update_Lop")]
+        [HttpPut]
+        public IActionResult Update([FromBody] LopModel lop)
+        {
+            try
+            {
+                int reuslt = lopBUS.Update(lop);
+                return reuslt == 1 ? Ok(reuslt) : BadRequest("Sửa thất bại");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         [Route("Delete_Lop")]
         [HttpDelete]
         public IActionResult Delete(string malop)

@@ -11,8 +11,7 @@ const btnLogin =$(".btnLogOut");
 const btnYes = $(".btnYes");
 const btnNo = $(".btnNo");
 
-const btnActiveFormHandicraft = $(".btnInputHandicraft");
-const btnActivFormInputFile = $(".btnInputFile")
+
 const navItem = document.querySelectorAll(".list-nav .nav-item")
 let isCreate =true;
 let isUpdate = false;
@@ -28,7 +27,6 @@ let pageSize = 10;
 
 
 function start(){
-  activeFormInputHandicraft();
     // isContent = true;
     // GetKhoa();
     // handleGetLop();
@@ -37,41 +35,6 @@ function start(){
     // handleTextBtnSave();
 }
 start();
-btnActiveFormHandicraft.on("click", ()=>{
-  if($(".option__input .active")){
-    $(".option__input .active").removeClass("active");
-  }
-  btnActiveFormHandicraft.addClass("active");
-  CloseFormInputFile();
-  activeFormInputHandicraft();
-});
-
-btnActivFormInputFile.on("click", ()=>{
-  if($(".option__input .active")){
-    $(".option__input .active").removeClass("active");
-  }
-  btnActivFormInputFile.addClass("active");
-  CloseFormInputHandicraft();
-  activeFormInputFile();
-})
-
-function activeFormInputHandicraft (){
-  $(".form__handicraft").addClass("open");
-}
-function activeFormInputFile (){
-  $(".form_inputFile").addClass("open");
-}
-
-function CloseFormInputHandicraft() { 
-  $(".form__handicraft").removeClass("open");
-
-
-}
-function CloseFormInputFile() { 
-  $(".form_inputFile").removeClass("open");
-
-
-}
 
 btnLogin.on("click", ()=>{
   openModalCofirm("Bạn chắc chắn muốn thoát");
