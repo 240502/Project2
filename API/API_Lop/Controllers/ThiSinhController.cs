@@ -12,9 +12,26 @@ namespace API_Lop.Controllers
     public class ThiSinhController : ControllerBase
     {
         ThiSinhBUS tsBUS = new ThiSinhBUS();
+        [Route("Get_All_ThiSinh")]
+        [HttpGet]
+
+        public IActionResult GetAll()
+        {
+            try
+            {
+                List<ThiSinhModel> list = tsBUS.GetAll();
+                return list != null ? Ok(list) : NotFound();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        
+        }
         [Route("Create_ThiSinh")]
         [HttpPost]
-
         public IActionResult Create([FromBody] ThiSinhModel model)
         {
             try
@@ -71,6 +88,7 @@ namespace API_Lop.Controllers
             {
                 int? pageSize = null;
                 int? pageIndex = null;
+                string malop = "";
                 if (formData.Keys.Contains("pageSize") && !string.IsNullOrEmpty(formData["pageSize"].ToString()))
                 {
                     pageSize = int.Parse(formData["pageSize"].ToString());
@@ -79,9 +97,9 @@ namespace API_Lop.Controllers
                 {
                     pageIndex = int.Parse(formData["pageIndex"].ToString());
                 }
-
+                if (formData.Keys.Contains("malop") && !string.IsNullOrEmpty(formData["malop"].ToString())) malop = formData["malop"].ToString();
                 int total = 0;
-                var listhisinh = tsBUS.GetList(pageSize, pageIndex, out total);
+                var listhisinh = tsBUS.GetList(pageIndex, pageSize, malop, out total);
                 return listhisinh != null ? Ok(new { data = listhisinh, pageIndex = pageIndex, pageSize = pageSize, totalItems = total }) : NotFound();
             }
             catch (Exception ex)
@@ -129,7 +147,7 @@ namespace API_Lop.Controllers
                 }
 
                 int total = 0;
-                var listhisinh = tsBUS.Search(pageSize, pageIndex,value, out total);
+                var listhisinh = tsBUS.Search(pageIndex, pageSize,value, out total);
                 return listhisinh != null ? Ok(new { data = listhisinh, pageIndex = pageIndex, pageSize = pageSize, totalItems = total }) : NotFound();
             }
             catch (Exception ex)

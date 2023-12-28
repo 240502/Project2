@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/Css/globalQL.css">
+    <link rel="stylesheet" href="./assets/Css/ModalConfirm.css">
+    <link rel="stylesheet" href="./assets/Css/footer.css">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.3.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./assets/Css/QuanLyUsers.css">
+    <title>Quản lý users</title>
+</head>
+<body>
+    <header>
+        <div class="header__container">
+            <div class="header__logo">
+                <a href="#" class="logo__utehy">
+                    <img src="./assets/img/logo-utehy.png" alt="">
+                </a>
+                <a href="#" class="logo__upm">
+                    <img src="./assets/img/upm_logo.png" alt="">
+                </a>
+            </div>
+            <div class="header__title">
+                <h3 class="title">
+                    Quản trị hệ thống
+                </h3>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <i class="fa-brands fa-codepen"></i>
+                    <span>Test Online</span>
+                </div>
+                <i class="fa-solid fa-bars" id="btn"></i>
+            </div>
+            <div class="user">
+                <img src="https://th.bing.com/th/id/R.f0f20ebfafe8d01983e1a3b78377036e?rik=8wckXGGa7jtMCw&pid=ImgRaw&r=0" alt="" class="user-img">
+                <div>
+                    <p class="bole">Nguyễn Văn Sang</p>
+                    <p>Admin</p>
+                </div>
+            </div>
+            <ul>
+                <li class="giangvien" style="display: none;">
+                    <a href="./ThiSinh.html">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="nav-item"> Thí sinh</span>
+                    </a>
+                    <span class="tooltip">Thí sinh</span>
+                </li>
+                <li class="giangvien" style="display: none;">
+                    <a href="#">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <span class="nav-item"> Ngân hàng câu hỏi</span>
+                    </a>
+                    <span class="tooltip">Ngân hàng câu hỏi</span>
+                </li>
+                <li class="giangvien" style="display: none;">
+                    <a href="#">
+                        <i class="fa-regular fa-newspaper"></i>
+                        <span class="nav-item"> Đề thi</span>
+                    </a>
+                    <span class="tooltip">Đề thi</span>
+                </li>
+                <li class="giangvien" style="display: none;">
+                    <a href="#">
+                        <i class="fa-solid fa-people-arrows"></i>
+                        <span class="nav-item"> Giao đề thi</span>
+                    </a>
+                    <span class="tooltip">Giao đề thi</span>
+                </li>
+                <li class="giangvien" style="display: none;">
+                    <a href="./QLLop.html">
+                        <i class="fa-solid fa-person-shelter"></i>
+                        <span class="nav-item"> Lớp</span>
+                    </a>
+                    <span class="tooltip">Lớp</span>
+                </li>
+                <li class="admin" style="display: none;">
+                    <a href="./QuanLyUsers.html">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="nav-item">Quản lý users</span>
+                    </a>
+                    <span class="tooltip">Quản lý users</span>
+                </li>
+                <li>
+                    <a href="./TaiKhoan.html">
+                        <i class="fa-regular fa-circle-user"></i>
+                        <span class="nav-item"> Tài khoản</span>
+                    </a>
+                    <span class="tooltip">Tài khoản</span>
+                </li>
+                <li>
+                    <a href="#" class="btnLogoff">
+                        <span  style=" transform: rotate(-180deg);">
+
+                            <i  class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </span>
+                        <span class="nav-item" > Đăng xuất</span>
+                    </a>
+                    <span class="tooltip">Đăng xuất</span>
+                </li>
+            </ul>
+        </div>
+        <div class="main-content main__container">
+            <div class="form">
+                <h3 class="form__title">
+                    Quản lý users
+                </h3>
+                <div class="option__input">
+                    <button class="btnInputHandicraft active" >
+                        Nhập thủ công
+                    </button>
+                    <button class="btnInputFile">
+                        Nhập từ danh sách
+                    </button>
+                </div>
+                <form action="" class="form__handicraft" style="display: none;">
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Mã người dùng:
+                        </label>
+                        <input type="text" id="user_id" placeholder="Nhập mã người dùng">
+                        <div class="error_message" style="display: none;"></div>
+                    </div>
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Họ và tên:
+                        </label>
+                        <input type="text" id="fullname" placeholder="Nhập họ và tên">
+                        <div class="error_message" style="display: none;"></div>
+                    </div>
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Địa chỉ:
+                        </label>
+                        <input type="text" id="address" placeholder="Nhập địa chỉ">
+                        <div class="error_message" style="display: none;"></div>
+                    </div>
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Nơi làm việc:
+                        </label>
+                        <input type="text" id="workplace" placeholder="Nhập nơi làm việc">
+                        <div class="error_message" style="display: none;"></div>
+                    </div>
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Số điện thoại:
+                        </label>
+                        <input type="text" id="phoneNumber" placeholder="Nhập số điện thoại">
+                        <div class="error_message" style="display: none;"></div>
+                    </div>
+                    <div class="form__group">
+                        <label for="" class="form__label">
+                            Email:
+                        </label>
+                        <input type="text" id="email" placeholder="Nhập email">
+                        <div class="error_message" style="display: none;"></div>
+                    </div>
+                  
+                    
+                    <div class="form__group">
+                        <button class="btnSave">Lưu</button>
+                    </div>
+                </form>
+                <form action="" class="form_inputFile" style="display: none;">
+                   <div class="form__group">
+                        <label for="" class="form__label">
+                            Danh sách người dùng:
+                        </label>
+                        <input type="file">
+                    </div>
+                    <div class="form__group">
+        
+                        <button class="btnImportFile "> Lưu</button>
+                    </div>
+                </form>
+            </div>
+            <div class="list__data">
+                <div class="list__data_container">
+                    <h3 class="list__title">
+                        Danh sách người dùng
+                    </h3>
+                    <div class="table__data">
+
+                         <div class="form__listdata">
+                                <button type="button" style="cursor: pointer;" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <input type="text" name="" id="input__search">
+                        </div>
+                        <table>
+                         <thead>
+                            <td>Mã người dùng</td>
+                            <td>
+                               Họ và tên
+                            </td>
+                            <td>
+                                Địa chỉ
+                            </td>
+                            <td>
+                                Nơi làm việc
+                            </td>
+                            <td>
+                               Số điện thoại
+                            </td>
+                            <td>Email</td>
+                            <td>Chức năng</td>
+                         </thead>
+                         <tbody>
+                           
+                         </tbody>
+                        </table>
+                    </div>
+                    <ul class="list-page">
+                        <li class="item page-prev">
+                            <button type="button" id="btn-page-prev" style="cursor: pointer;">
+                                <i class="fa-solid fa-chevron-left" style="color: #000000;"></i>
+                            </button>
+                        </li>
+                        <div style="display: inherit; ">
+
+                        </div>
+                        <li class="item page-next">
+                            <button type="button" id="btn-page-next" style="cursor: pointer;">
+                                <i class="fa-solid fa-chevron-right" style="color: #000000;"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+     
+    </main>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__info">
+                <div class="col-3">
+                    <div class="footer__item">
+                    <i class="fa-solid fa-link"></i>
+                      <span>Website</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <a href="#">Trang chủ</a>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-location-dot"></i>
+                      <span>Địa chỉ</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >Cơ sở Khoái Châu: Khoái Châu - Hưng Yên</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-phone"></i>
+                      <span>Điện thoại</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >+84.0321.3713081  - 0221.3689.888</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-regular fa-envelope"></i>
+                      <span>Email</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p> dhspkt@utehy.edu.vn</p>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="footer__item">
+                    <i class="fa-solid fa-link"></i>
+                      <span>Website</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <a href="#">Trang chủ</a>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-location-dot"></i>
+                      <span>Địa chỉ</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >Cơ sở Khoái Châu: Mỹ Hòa - Hưng Yên</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-phone"></i>
+                      <span>Điện thoại</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >+84.0321.3713081  - 0221.3689.888</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-regular fa-envelope"></i>
+                      <span>Email</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p> dhspkt@utehy.edu.vn</p>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="footer__item">
+                    <i class="fa-solid fa-link"></i>
+                      <span>Website</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <a href="#">Trang chủ</a>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-location-dot"></i>
+                      <span>Địa chỉ</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >Cơ sở Hải Dương: Lương Bằng - TP Hải Dương</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-phone"></i>
+                      <span>Điện thoại</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >+84.0321.3713081  - 0221.3689.888</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-regular fa-envelope"></i>
+                      <span>Email</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p> dhspkt@utehy.edu.vn</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="developer__info">
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast"></div>
+    <div id="modal-confirm-delete" class="">
+        <div class="modal-confirm-content">
+        </div>
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./assets/Js/ModalConfirm.js"></script>
+<script src="./assets/Js/globalQL.js"></script>
+<script src="./assets/Js/QLUsers.js"></script>
+</html>

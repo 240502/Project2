@@ -46,26 +46,20 @@
                 <div class="form__login">
                   <div class="form__left">
                     <ul class="option__role">
-                      <li class="role__item active" data-id="1">
-                        <a href="#">
+                      <li class="role__item active" data-id="3">
                           <span>Thí sinh đăng nhập</span>
 
                           <i class="fa-regular fa-user"></i>
-                        </a>
                       </li>  
                       <li class="role__item" data-id="2">
-                        <a href="#">
                           
                           <span>Giảng viên đăng nhập</span>
                           <i class="fa-solid fa-chalkboard-user"></i>
-                        </a>
                       </li>
-                      <li class="role__item" data-id="3">
-                        <a href="#">
+                      <li class="role__item" data-id="1">
                           <span> Quản trị viên đăng nhập</span>
                          
                           <i class="fa-solid fa-user-tie"></i>
-                        </a>
                       </li>
                     </ul>
                   </div>
@@ -74,10 +68,12 @@
                       <div class="form__group">
                           <label for="">Số báo danh/Mã sinh viên</label>
                           <input type="text" class="userName">
+                          <div class="error_message" style="display: none;"></div>
                       </div>
                       <div class="form__group">
                         <label for="">Mật khẩu</label>
                         <input type="password" class="password">
+                        <div class="error_message" style="display: none;"></div>
                     </div>
                     <div class="form__group">
                       <button class="btnLogin" type="button">
@@ -95,11 +91,13 @@
             <footer>
             </footer>
         </div>
+        <div id="toast"></div>
     </div>
 </body>
 
  
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./assets/Js/globalQL.js"></script>
 <script src="./assets/Js/dangnhap.js"></script>
 </html>

@@ -14,13 +14,40 @@ namespace DataAccess
     {
         DataHelper helper = new DataHelper();
 
-        public List<LopModel> getLop( int?pageSize, int?pageIndex ,out int total)
+        public List<LopModel> GetAll()
+        {
+            try
+            {
+                DataTable tb = helper.ExcuteReader("Pro_GetAll_Lop");
+                if (tb != null)
+                {
+                    List<LopModel> list = new List<LopModel>();
+                    for (int i = 0; i < tb.Rows.Count; i++)
+                    {
+                        LopModel model = new LopModel();
+                        model.MaLop = tb.Rows[i]["MaLop"].ToString();
+                        model.TenLop = tb.Rows[i]["TenLop"].ToString();
+                        model.SiSo = int.Parse(tb.Rows[i]["MaLop"].ToString());
+                        model.MaKhoa = tb.Rows[i]["MaKhoa"].ToString();
+                        list.Add(model);
+                    }
+                    return list;
+                }
+                else return null;
+
+            }catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public List<LopModel> getLop( int?pageSize, int?pageIndex ,string makhoa,out int total)
         {
             List<LopModel> listLop = new List<LopModel>();
             total = 0;
             try
             {
-                DataTable tb = helper.ExcuteReader("Pro_Get_Lop","@pageIndex","@pageSize",pageIndex,pageSize);
+                DataTable tb = helper.ExcuteReader("Pro_Get_Lop","@pageIndex","@pageSize","@makhoa",pageIndex,pageSize,makhoa);
                 if (tb != null)
                 {
                     total = int.Parse(tb.Rows[0]["RecordCount"].ToString());
@@ -67,6 +94,33 @@ namespace DataAccess
             }catch(Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public List<LopModel> GetListLop()
+        {
+            try
+            {
+                DataTable tb = helper.ExcuteReader("GetListLop");
+                if (tb != null)
+                {
+                    List<LopModel> listLop = new List<LopModel>();
+                    for (int i = 0; i < tb.Rows.Count; i++)
+                    {
+                        LopModel lop = new LopModel();
+                        lop.MaLop = tb.Rows[i]["MaLop"].ToString();
+                        lop.TenLop = tb.Rows[i]["TenLop"].ToString();
+                        lop.MaKhoa = tb.Rows[i]["MaKhoa"].ToString();
+                        lop.SiSo = int.Parse(tb.Rows[i]["MaLop"].ToString());
+                        listLop.Add(lop);
+                    }
+                    return listLop;
+                }
+                else return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
         public int Create(LopModel lop)

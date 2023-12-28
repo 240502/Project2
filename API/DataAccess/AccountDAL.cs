@@ -17,11 +17,12 @@ namespace DataAccess
         {
             try
             {
-                DataTable tb = helper.ExcuteReader("Pro_login","@un","pass",un,pass);
+                DataTable tb = helper.ExcuteReader("Pro_login", "@un","pass",un,pass);
                 if (tb != null)
                 {
                     AccountModel model = new AccountModel();
                     model.id = int.Parse(tb.Rows[0]["id"].ToString());
+                    model.user_id = tb.Rows[0]["user_id"] != DBNull.Value? int.Parse(tb.Rows[0]["user_id"].ToString()):0;
                     model.username = tb.Rows[0]["username"].ToString();
                     model.password = tb.Rows[0]["password"].ToString();
                     model.role_id = int.Parse(tb.Rows[0]["role_id"].ToString());
@@ -33,7 +34,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw ex;
+                return null;
             }
         }
     }

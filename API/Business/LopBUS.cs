@@ -11,14 +11,24 @@ namespace Business
     public class LopBUS
     {
         LopDAL lopDAL = new LopDAL();
-        public List<LopModel> getLop( int?pageSize, int?pageIndex, out int total)
+
+        public List<LopModel> GetAll()
         {
-            List<LopModel> list = lopDAL.getLop(pageSize, pageIndex, out total);
+            return lopDAL.GetAll();
+        }
+        public List<LopModel> getLop( int?pageSize, int?pageIndex, string makhoa, out int total)
+        {
+            List<LopModel> list = lopDAL.getLop(pageSize, pageIndex, makhoa,out total);
             return list;
         }
         public List<LopModel> GetLop(int? pageIndex,int? pageSize , out int total)
         {
             return lopDAL.GetLop(pageIndex, pageSize, out total);
+        }
+
+        public List<LopModel> GetListLop()
+        {
+            return lopDAL.GetListLop();
         }
         public int Create(LopModel lop)
         {

@@ -69,9 +69,7 @@ function remderListSubject(){
     var html = listSubject.map(item=>{
        
         return `
-     
             <option value="${item.id}">${item.name}</option>
-        
         `
     });
     $("#select__subject_test").html(html);
@@ -83,7 +81,6 @@ $("#select__subject_test").on("change",()=>{
     });
     exmamOption.selected = true;
     let exam = listExam.find(item =>{
-        console.log(item)
         return item.id === Number(exmamOption.value);
     });
     $(".number__question").html(

@@ -162,10 +162,6 @@ form{
 .btn:hover{
     opacity: 0.8;
 }
-footer{
-    padding: 50px;
-    background-color: #ccc;
-}
 
 /* toast */
 

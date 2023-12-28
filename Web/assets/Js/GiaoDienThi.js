@@ -12,8 +12,6 @@ function start() {
     renderListQuestion();
 }
 start();
-
-
 var listquestionchecked = [];
 let time = exam.time -1 ;
 let second = 60;
@@ -27,7 +25,6 @@ function countDown(countdownElement){
         countdownElement.html(`${time}:${second} phút`)
     }, 1000);
 }
-
 
 function renderListQuestion (){
     var html = "";
@@ -49,7 +46,6 @@ function renderListQuestion (){
         `
 
     }
-  
     $(".question__list").html(html);
     ischeckedQuestion(document.querySelector(".question__list li.active"));
     document.querySelectorAll(".question__list li").forEach(item=>{
@@ -200,7 +196,25 @@ btnNextToEnd.on("click",()=>{
 
 btnSubmit.on("click",()=>{
     if(listquestionchecked.length  === exam.numberQuestion){
-        alert("Nop bai thanh cong!")
+        openModalCofirmDelete("Bạn chắc chắn muốn nộp bài?")
+        $(".btnNo").on("click", ()=>{
+            closeModalCofirmDelete();
+        })
+        $(".btnYes").on("click", ()=>{
+
+            window.location = "./GiaoDienXemDiem.html";
+        });
+    }
+    else{
+        openModalCofirmDelete("Vẫn còn câu hỏi chưa hoàn thành. Bạn chắc chắn muốn nộp bài?")
+        $(".btnNo").on("click", ()=>{
+            closeModalCofirmDelete();
+        })
+        $(".btnYes").on("click", ()=>{
+            window.location = "./GiaoDienXemDiem.html";
+
+        });
+
     }
 });
 function ischeckedQuestion(questionactive){

@@ -13,6 +13,23 @@ namespace API_Lop.Controllers
     {
         List<LopModel> listlop ;
         LopBUS lopBUS = new LopBUS();
+
+        [Route("Get_AllLop")]
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                List<LopModel> list = lopBUS.GetAll();
+                return list != null ? Ok(list) : NotFound();
+
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
         [Route("Create_Lop")]
         [HttpPost]
         public IActionResult Create([FromBody]LopModel lop)
@@ -23,6 +40,20 @@ namespace API_Lop.Controllers
                 return reuslt == 1 ? Ok(reuslt):BadRequest("Thêm thất bại");
             }
             catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        [Route("GetListLop")]
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                List<LopModel> list = lopBUS.GetListLop();
+                return list != null ? Ok(list) : NotFound();
+
+            }catch(Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -91,6 +122,7 @@ namespace API_Lop.Controllers
             {
                 int? pageSize = null;
                 int? pageIndex = null;
+                string makhoa = "";
                 if (formData.Keys.Contains("pageSize") && !string.IsNullOrEmpty(formData["pageSize"].ToString()))
                 {
                     pageSize = int.Parse(formData["pageSize"].ToString());
@@ -99,9 +131,10 @@ namespace API_Lop.Controllers
                 {
                     pageIndex = int.Parse(formData["pageIndex"].ToString());
                 }
-               
+                if (formData.Keys.Contains("makhoa") && !string.IsNullOrEmpty(formData["makhoa"].ToString()))
+                    makhoa = formData["makhoa"].ToString();
                 int total = 0;
-                listlop = lopBUS.getLop(pageSize, pageIndex, out total);
+                listlop = lopBUS.getLop(pageSize, pageIndex, makhoa,out total);
                 return listlop != null ? Ok(new {data=listlop,pageIndex = pageIndex,pageSize= pageSize,totalItems=total}) : NotFound();
             }
             catch (Exception ex)

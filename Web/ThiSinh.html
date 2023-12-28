@@ -6,6 +6,8 @@
     <title>Quản lý thí sinh</title>
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.3.0-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/Css/globalQL.css">
+    <link rel="stylesheet" href="./assets/Css/footer.css">
+    <link rel="stylesheet" href="./assets/Css/ModalConfirm.css">
     <link rel="stylesheet" href="./assets/Css/ThiSinh.css">
     
 </head>
@@ -45,40 +47,47 @@
                 </div>
             </div>
             <ul>
-                <li>
+                <li class="giangvien" style="display: none;">
                     <a href="./ThiSinh.html">
                         <i class="fa-solid fa-users"></i>
                         <span class="nav-item"> Thí sinh</span>
                     </a>
                     <span class="tooltip">Thí sinh</span>
                 </li>
-                <li>
+                <li class="giangvien" style="display: none;">
                     <a href="#">
                         <i class="fa-solid fa-building-columns"></i>
                         <span class="nav-item"> Ngân hàng câu hỏi</span>
                     </a>
                     <span class="tooltip">Ngân hàng câu hỏi</span>
                 </li>
-                <li>
+                <li class="giangvien" style="display: none;">
                     <a href="#">
                         <i class="fa-regular fa-newspaper"></i>
                         <span class="nav-item"> Đề thi</span>
                     </a>
                     <span class="tooltip">Đề thi</span>
                 </li>
-                <li>
+                <li class="giangvien" style="display: none;">
                     <a href="#">
                         <i class="fa-solid fa-people-arrows"></i>
                         <span class="nav-item"> Giao đề thi</span>
                     </a>
                     <span class="tooltip">Giao đề thi</span>
                 </li>
-                <li>
+                <li class="giangvien" style="display: none;">
                     <a href="./QLLop.html">
                         <i class="fa-solid fa-person-shelter"></i>
                         <span class="nav-item"> Lớp</span>
                     </a>
                     <span class="tooltip">Lớp</span>
+                </li>
+                <li class="admin" style="display: none;">
+                    <a href="./QuanLyUsers.html">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="nav-item">Quản lý users</span>
+                    </a>
+                    <span class="tooltip">Quản lý users</span>
                 </li>
                 <li>
                     <a href="./TaiKhoan.html">
@@ -88,12 +97,12 @@
                     <span class="tooltip">Tài khoản</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" class="btnLogoff">
                         <span  style=" transform: rotate(-180deg);">
 
                             <i  class="fa-solid fa-arrow-right-from-bracket"></i>
                         </span>
-                        <span class="nav-item"> Đăng xuất</span>
+                        <span class="nav-item" > Đăng xuất</span>
                     </a>
                     <span class="tooltip">Đăng xuất</span>
                 </li>
@@ -118,47 +127,65 @@
                             Mã lớp:
                         </label>
                         <select class="form-select select__malop" aria-label="Default select example">
-                            <option selected>Mã lớp...</option>
-                            <option value="125211">125211</option>
-                            <option value="125212">125212</option>
-                            <option value="125213">125213</option>
+                           
                         </select>
+                        <div class="error_message" style="display: none;"></div>
                     </div>
                     <div class="form__group">
                         <label for="" class="form__label" >
                             Họ và tên:
                         </label>
-                        <input type="text" id="fullname" placeholder="Nhập họ và tên thí sinh" required>
+                        <input type="text" id="fullname" placeholder="Nhập họ và tên thí sinh" >
+                        <div class="error_message" style="display: none;"></div>
+                        
                     </div>
                     <div class="form__group">
                         <label for="" class="form__label">
                             Mã/SBD:
                         </label>
-                        <input type="text" id="sbd" placeholder="Nhập mã/sbd" required>
+                        <input type="text" id="sbd" placeholder="Nhập mã/sbd" >
+                        <div class="error_message" style="display: none;"></div>
                     </div>
                     <div class="form__group">
                         <label for="" class="form__label">
                             Ngày sinh:
                         </label>
-                        <input type="date" id="birthday" placeholder="Nhập ngày sinh thí sinh" required>
+                        <input type="date" id="birthday" placeholder="Nhập ngày sinh thí sinh" >
+                        <div class="error_message" style="display: none;"></div>
+                        
                     </div>
                     <div class="form__group">
                         <label for="" class="form__label">
                             Giới tính:
                         </label>
-                        <input type="text" id="gender" placeholder="Nhập giới tính thí sinh" required>
+                        <div class="group__radio" style="display: flex;width:60%">
+                            <div class="radio__item" style="display: flex; width:50%;flex-grow:1">
+                                <input type="radio" id="radio__male" name="gender" style="margin-right: 10px;width:80px">
+                                <label for="" style="width:50px">Nam</label>
+                            </div>
+                            <div class="radio__item" style="display: flex; width:50%;flex-grow:1">
+                                <input type="radio" id="radio__female" name="gender" style="margin-right: 10px;width:80px">
+                                <label for="" style="width:50px">Nữ</label>
+                            </div>
+                        </div>
+                        <div class="error_message" style="display: none;"></div>
+                    
                     </div>
                     <div class="form__group">
                         <label for="" class="form__label">
                             Địa chỉ:
                         </label>
-                        <input type="text" id="malop" placeholder="Nhập địa chỉ giáo viên" required>
+                        <input type="text" id="address" placeholder="Nhập địa chỉ thí sinh" >
+                        <div class="error_message" style="display: none;"></div>
+                        
                     </div>
                     <div class="form__group">
                         <label for="" class="form__label">
                             Nhóm/Ca thi:
                         </label>
-                        <input type="text" id="malop" placeholder="Nhập nhóm/ca thi" required>
+                        <input type="text" id="group_exam" placeholder="Nhập nhóm/ca thi" >
+                        <div class="error_message" style="display: none;"></div>
+                        
                     </div>
                     <div class="form__group">
                         <button class="btnSave">Lưu</button>
@@ -197,10 +224,7 @@
                         <div class="form__listdata">
                             <div class="form__select__malop">
                                 <select class=" listdata__select__malop" aria-label="Default select example">
-                                    <option selected>Mã lớp...</option>
-                                    <option value="125211">125211</option>
-                                    <option value="125212">125212</option>
-                                    <option value="125213">125213</option>
+                                  
                                 </select>
                             </div>
                             <div class="form__search">
@@ -224,67 +248,135 @@
                             <td>
                                Giới tính
                             </td>
+                            <td>Địa chỉ</td>
                             <td>
                                 Mật khẩu
                             </td>
                             <td> Nhóm/Ca thi</td>
+                            <td>Lớp</td>
+                            <td>Chức năng</td>
                          </thead>
                          <tbody>
-                            <tr>
-                               
-                                <td>
-                                    Tên lớp
-                                </td>
-                                <td>
-                                    Sĩ số
-                                </td>
-                                <td>
-                                    24/05/2002
-                                </td>
-                                <td>
-                                    Mã lớp
-                                </td>
-                                <td>
-                                    Tên lớp
-                                </td>
-                              
-                                <td>
-                                    <button class="btn btnDelete btn-outline-danger">
-                                        Xóa
-                                    </button>
-                                    <button class="btn btnUpdate btn-outline-success">
-                                        Sửa
-                                    </button>
-                                </td>
-                            </tr>
+                           
                           
                          </tbody>
                         </table>
                     </div>
+                    <ul class="list-page">
+                        <li class="item page-prev">
+                            <button type="button" id="btn-page-prev" style="cursor: pointer;">
+                                <i class="fa-solid fa-chevron-left" style="color: #000000;"></i>
+                            </button>
+                        </li>
+                        <div style="display: inherit; ">
+
+                        </div>
+                        <li class="item page-next">
+                            <button type="button" id="btn-page-next" style="cursor: pointer;">
+                                <i class="fa-solid fa-chevron-right" style="color: #000000;"></i>
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </main>
-    <div id="modal-confirm" class="">
+    <footer>
+        <div class="footer__container">
+            <div class="footer__info">
+                <div class="col-3">
+                    <div class="footer__item">
+                    <i class="fa-solid fa-link"></i>
+                      <span>Website</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <a href="#">Trang chủ</a>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-location-dot"></i>
+                      <span>Địa chỉ</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >Cơ sở Khoái Châu: Khoái Châu - Hưng Yên</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-phone"></i>
+                      <span>Điện thoại</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >+84.0321.3713081  - 0221.3689.888</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-regular fa-envelope"></i>
+                      <span>Email</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p> dhspkt@utehy.edu.vn</p>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="footer__item">
+                    <i class="fa-solid fa-link"></i>
+                      <span>Website</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <a href="#">Trang chủ</a>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-location-dot"></i>
+                      <span>Địa chỉ</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >Cơ sở Khoái Châu: Mỹ Hòa - Hưng Yên</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-phone"></i>
+                      <span>Điện thoại</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >+84.0321.3713081  - 0221.3689.888</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-regular fa-envelope"></i>
+                      <span>Email</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p> dhspkt@utehy.edu.vn</p>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="footer__item">
+                    <i class="fa-solid fa-link"></i>
+                      <span>Website</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <a href="#">Trang chủ</a>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-location-dot"></i>
+                      <span>Địa chỉ</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >Cơ sở Hải Dương: Lương Bằng - TP Hải Dương</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-solid fa-phone"></i>
+                      <span>Điện thoại</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p >+84.0321.3713081  - 0221.3689.888</p>
+                    </div>
+                    <div class="footer__item">
+                        <i class="fa-regular fa-envelope"></i>
+                      <span>Email</span>
+                      <i class="fa-solid fa-angles-right"></i>
+                      <p> dhspkt@utehy.edu.vn</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="developer__info">
+            </div>
+        </div>
+    </footer>
+    <div id="toast"></div>
+    <div id="modal-confirm-delete" class="">
         <div class="modal-confirm-content">
-            <div class="modal-confirm-header">
-                <h3>Thông báo</h3>
-                <div class="modal-confirm-close">
-                    <i class="fa-solid fa-xmark" style="color: #000000;"></i>
-                </div>
-                <h4 class="modal-confirm-title">
-                   
-                </h4>
-              </div>
-              <div class="modal-confirm-action">
-                <button type="button" class="btn btnNo">
-                    Hủy
-                </button>
-                <button type="button" class="btn btnYes" >Đồng ý</button>
-              </div>
+           
         </div>
     </div>
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="./assets/Js/ModalConfirm.js"></script>
 <script src="./assets/Js/globalQL.js"></script>
+<script src="./assets/Js/Thisinh.js"></script>
 </html>

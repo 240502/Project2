@@ -1,0 +1,31 @@
+
+.form__listdata{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form__listdata div{
+    width: 40%;
+}
+
+
+
+.form__listdata .listdata__select__makhoa{
+    margin-bottom: 20px;
+
+}
+.listdata__select__makhoa
+{
+    padding: 10px 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    width: 80%;
+}
+.listdata__select__malop:focus{
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25)
+}
+.btnDelete{
+    margin-bottom: 10px;
+}

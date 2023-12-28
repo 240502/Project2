@@ -12,9 +12,13 @@ namespace Business
     {
         ThiSinhDAL tsDAL = new ThiSinhDAL();
 
-        public List<ThiSinhModel> GetList(int? pageIndex,int ?pageSize, out int total)
+        public List<ThiSinhModel> GetAll()
         {
-            return tsDAL.GetList(pageIndex,pageSize, out total);
+            return tsDAL.GetAll();
+        }
+        public List<ThiSinhModel> GetList(int? pageIndex,int ?pageSize, string malop,out int total)
+        {
+            return tsDAL.GetList(pageIndex,pageSize, malop,out total);
         }
         public ThiSinhModel GetByID(string id)
         {

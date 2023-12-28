@@ -1,55 +1,166 @@
-const navLopHp = $("#btnLopHP");
-const navLopHc = $("#btnLopHC");
-const inputMaLop = $("#malop");
-const inputTenLop = $("#tenlop");
-const inputSiSo = $("#siSo");
-const makhoa = $("#makhoa");
+const inputMaLop = document.querySelector("#malop");
+const inputTenLop = document.querySelector("#tenlop");
+const inputSiSo = document.querySelector("#siso");
+const makhoa = document.querySelector("#makhoa");
+const gvcm = document.querySelector("#gvcm");
+
 const btnCreate = $('.btnSave')
 const btnDelete = $('.btnDelete');
-const inputSearch = $(".search-input");
+const inputSearch = $("#input__search");
 const btnLogin =$(".btnLogOut");
-const btnYes = $(".btnYes");
-const btnNo = $(".btnNo");
-
-
+const btnSearch = $("#btnSearch")
+const form = $(".form__handicraft")
 const navItem = document.querySelectorAll(".list-nav .nav-item")
 let isCreate =true;
-let isUpdate = false;
-let isContent = false;
-let isSearch = false;
-let thisPage = 1;
-let pageSize = 10;
-
-
-
-
-
-
-
+let isContent = true;
+let ListClass = JSON.parse(localStorage.getItem("ListClass")) || []
 function start(){
-    // isContent = true;
-    // GetKhoa();
-    // handleGetLop();
-    // $("h2.title").html("")
-    // $("h2.title").html("Quản lý lớp hành chính")
-    // handleTextBtnSave();
+  renderListKhoa()
+  handleTextBtnSave();
+  handleGetListLop();
 }
 start();
+function handleReadOnLyInput(){
+  if(isCreate){
+    inputMaLop.readOnly =false;
+  }
+  else{
+    inputMaLop.readOnly =true;
+  }
+} 
+function showError (input,message){
+  let parent = input.parentElement;
+  let error__message = parent.querySelector(".error_message");
+  parent.classList.add("error");
+  error__message.textContent=message;
+}
 
-btnLogin.on("click", ()=>{
-  openModalCofirm("Bạn chắc chắn muốn thoát");
-  console.log("oge")
+$(".btnLogoff").on("click", ()=>{
+  openModalCofirmDelete("Bạn chắc chứn muốn đăng xuất!");
+  $(".btnNo").on("click", ()=>{
+      closeModalCofirmDelete();
+  })
+  $(".btnYes").on("click", ()=>{
+      localStorage.setItem("account",null)
+      window.location = "DangNhap.html";
+  });
+})
+
+
+function showSuccess(input){
+  let parent = input.parentElement;
+  let error__message = parent.querySelector(".error_message");
+  parent.classList.remove("error");
+  error__message.textContent="";
+
+}
+
+
+function checkEmptyError(listInput){
+  let isEmptyError = false;
+  listInput.forEach(input => {
+      input.value = input.value.trim();
+      if(!input.value )
+      {
+          isEmptyError = true;
+          showError(input,"Không được để trống ô này!");
+      }
+      else{
+          showSuccess(input);
+      }
+      
+  });
+
+  return isEmptyError
+}
+
+
+document.querySelectorAll(".form__handicraft input").forEach((item) => {
+  item.onfocus= ()=>{
+    showSuccess(item);
+  }
+
+})
+
+
+
+function checkSiSo(input){
+  if(input.value.trim() !=="" ){
+      const siso = input.value.trim();
+      for(var i=0; i<siso.length; i++){
+          let number = parseInt(siso[i]);
+          if(isNaN(number)){
+              showError(input,"Sĩ số không chứa kí tự chữ!")
+              return true;
+          }
+      }
+  }
+  return false;
+}
+
+function checkTenLop(input,makhoa){
+  if(input.value !=""){
+    var lop = ListClass.find(item =>{
+      return item.tenLop == input.value && item.maKhoa === makhoa;
+    }) 
+    if(lop)
+    {
+     showError( input,"Tên lớp đã tồn tại !");
+     return true;
+    }
+     else{
+      showSuccess(input);
+     }
+  }
+  return false;
+}
+
+function checkMaLop(input,makhoa){
+  if(ListClass.length > 0){
+    if(input.value !=""){
+      var lop = ListClass.find(item =>{
+        return item.maLop == input.value  && item.maKhoa == makhoa;
+      }) 
+      if(lop){
+      
+       showError( input,"Mã lớp đã tồn tại !");
+       return true;
+      
+      
+      } 
+      else{
+        showSuccess(input);
+      }
+    }
+  }
+  return false;
+}
+
+form.on("submit",(e)=>{
+  e.preventDefault();
+  const isEmpty = checkEmptyError([inputMaLop,inputTenLop,inputSiSo])
+  const isSiSoError = checkSiSo(inputSiSo);
+ 
+  if(isEmpty || isSiSoError){
+
+  }
+  else{
+    if(isCreate){
+      const isMaLopError = checkMaLop(inputMaLop,makhoa.value.trim());
+      const isTenLopError = checkTenLop(inputTenLop,makhoa.value.trim());
+      if(isMaLopError || isTenLopError ){
+        showErrorToast("Có lỗi!")
+      }
+      else{
+        handleCreate();
+      }
+    }
+    else{
+      handleUpdate();
+    }
+  }
 });
 
-btnNo.on("click", ()=>{
-  closeModalCofirm();
-});
-
-
-
-btnYes.on("click", ()=>{
-  window.location="./DangNhap.html";
-});
 
 function handleTextBtnSave(){
   if(isCreate)
@@ -64,64 +175,42 @@ function handleTextBtnSave(){
     }
 }
 
-navItem.forEach(item => {
-  
-  item.onclick = ()=>{
-    if(document.querySelector(".list-nav .nav-item.active")!==null){
-      document.querySelector(".list-nav .nav-item.active").classList.remove("active")
-      item.classList.add("active")
-      
+function renderListKhoa(){
+  const ListKhoa = [
+    {
+      makhoa:"CNTT",
+      tenKhoa:"Công Nghệ Thông Tin"
+    },
+    {
+      makhoa:"Đ-ĐT",
+      tenKhoa:"Điện - Điện tử"
+    },
+    {
+      makhoa:"CK",
+      tenKhoa:"Cơ Khí"
     }
-  
-  }
-})
-function GetKhoa(){
-  $.get("https://localhost:7217/api/Khoa/GetListKhoa")
-  .done(res=>{
-    console.log(res);
-    renderListKhoa(res);
-  })
-  .fail(err=>{
-    console.log(err);
-  })
-}
-function renderListKhoa(khoas){
-  var html = khoas.map(khoa=>{
+    
+  ]
+  var html = ListKhoa.map(khoa=>{
     return `
       
-      <option value="${khoa["maKhoa"]}">${khoa["tenKhoa"]}</option>
+      <option value="${khoa["makhoa"]}">${khoa["tenKhoa"]}</option>
     `
   })
-  $("#makhoa").html(html)
+  $("#makhoa").html(html);
+  $(".listdata__select__makhoa").html(html);
 }
-function handleGetLop(){
-    const data = {
-        pageSize : pageSize,
-        pageIndex:thisPage
-    }
-    getLop(data)
+function handleGetListLop(){
+  const newArray = ListClass.filter(lop=>{
+    return lop.maKhoa === $("#makhoa").val()
+  })
+  renderLop(newArray)
 }
-function getLop(data){
-    $.post({
-        url:"https://localhost:7217/api/Lop/Get_Lop",
-        contentType:"application/json",
-        data :JSON.stringify(data)
-    }).done((res) => {
-        console.log(res)
-        renderLop(res)
-    })
-}
-function renderLop(lops){
-  const countPage = Math.ceil(lops["totalItems"]/pageSize)
-  renderListPage(countPage)
-  var html = lops["data"].map(lop=>{
-    getKhoaByID(lop["maKhoa"])
-    var khoa = JSON.parse(localStorage.getItem("KhoaUpdate"));
+function renderLop(listlop){
+  if(listlop.length > 0){
+    var html = listlop.map(lop=>{
       return `
       <tr class="tb-content" data-id = "${lop["maLop"]}">
-        <td class="maKhoa" data-id="${khoa["maKhoa"]}">
-          ${khoa["tenKhoa"]}
-        </td>
         <td class="malop" >
             ${lop["maLop"]}
         </td>
@@ -134,7 +223,7 @@ function renderLop(lops){
         <td>
              <div class="group-btn">
                  <div class="group-delete">
-                     <button type="button" class="btnDelete btn">Xóa</button>
+                     <button type="button" class="btnDelete btn" onclick = acitveFormConfirm(${"'"+lop["maLop"]+"'"})>Xóa</button>
                  </div>
 
                  <div class="group-update">
@@ -144,238 +233,147 @@ function renderLop(lops){
         </td>
      </tr>
       `
-  })
-  $("tbody").html(html.join(''))
-  $(".btnDelete").on("click", ()=>{
-    localStorage.setItem("maLopDelete",JSON.stringify(document.querySelector(".btnDelete").parentElement.parentElement.parentElement.parentElement.dataset.id));
-    openModal();
-  });
+    })
+    $("tbody").html(html.join(''))
+  }
+  else{
+    $("tbody").html("Không có lớp nào!")
+  }
   
 }
-
-function clearData(){
-    inputMaLop.val("");
-    inputTenLop.val("");
-    inputSiSo.val("");
-}
-btnCreate.click(()=>{
-    
-    var data = {
-        maLop: inputMaLop.val(),
-        maKhoa: makhoa.val(),
-        tenLop: inputMaLop.val(),
-        siSo: inputSiSo.val()
-    }
-    if(isCreate){
-      CreateLop(data);
-    }
-    else{
-      console.log(data);
-      UpdateLop(data);
-    }
+$(".listdata__select__makhoa").on("change", ()=>{
+  const newArray = ListClass.filter(lop=>{
+    return lop.maKhoa === $(".listdata__select__makhoa").val()
+  })
+  renderLop(newArray)
 })
+function clearData(){
+    inputMaLop.value =""
+    inputTenLop.value = "";
+    inputSiSo.value = "";
+}
+
+function handleCreate(){
+  const data=
+  {
+    "maLop": inputMaLop.value.trim(),
+    "maKhoa": makhoa.value.trim(),
+    "tenLop": inputTenLop.value.trim(),
+    "siSo": inputSiSo.value.trim()
   
-function CreateLop(data) {
-    $.post({
-        url:"https://localhost:7217/api/Lop/Create_Lop",
-        data:JSON.stringify(data),
-        contentType:"application/json"
-    }).done((res)=>{
-        if(res >=1)
-        {
-         alert("Thêm thành công")
-         handleGetLop();
-         clearData();
-        }
-        
-    })
-    .fail(err=>{
-      alert(err.responseText);
-      clearData();
-    })
+  }
+  ListClass.push(data);
+  localStorage.setItem("ListClass",JSON.stringify(ListClass));
+  showSuccessToast("Thêm thành công !")
+  renderLop(ListClass);
+  clearData();
 }
 
 
-navLopHc.click(()=>{
-    $(".title").html("")
-    $(".title").html("Quản lý lớp hành chính")
 
-});
-navLopHp.click(()=>{
-    $(".title").html("")
-    $(".title").html("Quản lý lớp học phần")
-
-});
-
-
-
-function renderListPage(count){
-    $(".list-page div").html("")
-    var html = ""
-
-    if(count > 1){
-      if(thisPage<count )
-      {
-        if(thisPage>=2)
-        {
-          for(var i=thisPage-1; i<=thisPage+1; i++){
-            html+= `
-              <li class="item ${thisPage ==i?"active":""}" onclick= changePage(${i})><span>${i}</span></li>
-            `
-          }
-        }
-        else{
-          for(var i=1; i<=thisPage+1; i++){
-            html+= `
-              <li class="item ${thisPage ==i?"active":""}" onclick= changePage(${i})><span>${i}</span></li>
-            `
-          }
-        }
-      }
-      else{
-        if(thisPage>2)
-        {
-            for(var i=thisPage-2; i<=thisPage; i++){
-                html+= `
-                  <li class="item ${thisPage ==i?"active":""}" onclick= changePage(${i})><span>${i}</span></li>
-                `
-              }
-        }
-        else{
-            for(var i=1; i<=thisPage; i++){
-                html+= `
-                  <li class="item ${thisPage ==i?"active":""}" onclick= changePage(${i})><span>${i}</span></li>
-                `
-              }
-        }
-      
-      }
-      $(".list-page div").html(html);
-      $(".page-next").toggleClass("active-button",true)
-
-    }
-    else{
-      $(".page-next").toggleClass("active-button",false)
-      $(".page-prev").toggleClass("active-button",false)
-    }
-};
-function changePage(index){
-    thisPage = index;
-    if(isContent){
-
-      handleGetLop();
-    }
-    if(isSearch){
-        handleSearchLop();
-    }
-    if(thisPage !=1){
-        $(".page-prev").toggleClass("active-button",true)
-    }
-    else{
-        $(".page-prev").toggleClass("active-button",false)
-    }
-   
-};
-function openModal(){
-  $(".model").addClass("modal-open");
-}
-function hiddeModal(){
-  $(".model").removeClass("modal-open");
-}
-btnNo.on("click", ()=>{
-  hiddeModal();
-});
-btnYes.on("click", ()=>{
-  const malop = JSON.parse(localStorage.getItem("maLopDelete"));
-  $.ajax({
-    url: "https://localhost:7217/api/Lop/Delete_Lop"+'?malop='+malop,
-    type: 'DELETE',
-    contentType:"application/json;"
-  }).done(res=>{
-      hiddeModal();
-      alert("Xóa thành công")
-      handleGetLop();
-  }).fail(err=>{
-    console.log(err);
-  })
-});
-
-function getKhoaByID(id){
-  $.get("https://localhost:7217/api/Khoa/GetKhoaByID"+"?id="+id)
-  .done(res=>{
-    localStorage.setItem("KhoaUpdate",JSON.stringify(res));
-  }).fail(err=>{
-    console.log(err)
+function acitveFormConfirm(id){
+  openModalCofirmDelete("Bạn chắc chắn muốn xóa lớp này");
+  const btnYes = $(".btnYes");
+  const btnNo = $(".btnNo");
+  btnNo.on("click", ()=>{
+    closeModalCofirmDelete();
   });
-};
+  btnYes.on("click", ()=>{
+    Delete(id)
+  });
+}
+function Delete(malop){
+  const newArray = ListClass.filter(lop =>{
+    return lop.maLop !== malop;
+  })
+  localStorage.setItem("ListClass",JSON.stringify(newArray))
+  closeModalCofirmDelete();
+  showSuccessToast("Xóa thành công !")
+  if(newArray.length > 0 ){
+      ListClass = JSON.parse(localStorage.getItem("ListClass"));
+  }
+  else{
+      $(".form__listdata tbody").html("Không có lớp nào!")
+  }
+  renderLop(ListClass);
+}
+
 
 function fillToInput(index){
   isCreate=false;
-  isUpdate = true;
   handleTextBtnSave();
+  handleReadOnLyInput()
   var tb_content = [...document.querySelectorAll('.tb-content')].find((item)=>{
     if( Number(item.dataset.id) == index)
     return item;
 });
-  getKhoaByID(tb_content.querySelector(".maKhoa").dataset.id);
-  var khoa =JSON.parse( localStorage.getItem("KhoaUpdate"));
-    $("#makhoa").val(khoa["maKhoa"])
+    $("#makhoa").val($(".listdata__select__makhoa").val())
     $("#malop").val(tb_content.querySelector(".malop").textContent.trim());
     $("#tenlop").val(tb_content.querySelector(".tenlop").textContent.trim());
-    $("#siSo").val(tb_content.querySelector(".siSo").textContent.trim());
-
+    $("#siso").val(tb_content.querySelector(".siSo").textContent.trim());
+    isCreate =false;
 };
+function handleUpdate(){
+  var data = {
+      "maLop": inputMaLop.value.trim(),
+      "maKhoa": makhoa.value.trim(),
+      "tenLop": inputTenLop.value.trim(),
+      "siSo": inputSiSo.value.trim()
+  }
+  ListClass.map((lop,index) =>{
+    if(lop.maLop ===inputMaLop.value.trim() )
+    {
+      ListClass[index] = data
+    }
+    return
+  })
+  localStorage.setItem("ListClass",JSON.stringify(ListClass))
+  showSuccessToast("Sửa thành công!")
+  renderLop(ListClass)
+  isCreate = true;
+  clearData();
+  handleTextBtnSave();
+  handleReadOnLyInput()
+}
 
 inputSearch.keypress(e=>{
   if(e.keyCode === 13){
     if(inputSearch.val() !=="")
     {
-      isSearch = true;
       isContent = false;
       localStorage.setItem("valueSearch", JSON.stringify(inputSearch.val()));
       handleSearchLop();
     }
-    else{
-      isSearch = false;
-      isContent = true;
-    }
-}
+  
+  }
+})
+btnSearch.on("click",()=>{
+  if(inputSearch.val() !=="")
+  {
+    handleSearchLop();
+  }
 })
 function handleSearchLop(){
-  if(inputSearch.val() ===""){
-    var valueSearch = JSON.parse(localStorage.getItem("valueSearch"));
-    var data = {
-      pageIndex: thisPage,
-      pageSize: pageSize,
-      value:valueSearch
-    };
-    SearchLop(data);
-  }
-  else{
-    var data = {
-      pageIndex: thisPage,
-      pageSize: pageSize,
-      value:inputSearch.val()
-    };
-    SearchLop(data);
+  if(ListClass.length > 0){
+    const lop =  ListClass.filter(l =>{
+        return (l.maLop === inputSearch.val().trim()) 
+                || (l.tenLop === inputSearch.val().trim()) 
+                || (l.siSo === inputSearch.val().trim()) 
+    })
+    if(lop !== undefined){
+        renderLop(lop)
+    }
+    else{
+        $(".form__listdata tbody").html("Không có lớp nào!")
+    }
+    $("#input__search").val("")
 
   }
-  
-}
-
-function SearchLop(data){
-  $.post({
-    url:"https://localhost:7217/api/Lop/Search_Lop",
-    data : JSON.stringify(data),
-    contentType : "application/json"
-  
-  })
-  .done(res=>{
-    renderLop(res)
-  })
-  .fail(err=>{
-    console.log(err);
-  })
 
 }
   
+
+
+
+
+
