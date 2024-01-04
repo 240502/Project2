@@ -155,14 +155,18 @@ form.on("submit",(e) => {
     const isEmptyError = checkEmptyError([fullname,address,workplace,phoneNumber,email,user_id]);
     const isEmailError = checkEmail(email);
     const isSDTError = checkSDT(phoneNumber);
-    const isUserIdError = checkUserIdError(user_id);
     if(isEmptyError || isEmailError || isSDTError)
     {
         showErrorToast("Có lỗi !")
     }else{
          if(isCreate){
+            const isUserIdError = checkUserIdError(user_id);
             if(!isUserIdError)
                 handleCreate();
+            else{
+                showErrorToast("Có lỗi !")
+
+            }
          }
          else{
             handleUpdate();
@@ -220,7 +224,6 @@ function handleCreate(){
             "phoneNumber": phoneNumber.value.trim(),
             "address": address.value.trim()
     }
-    // const us = new Array(data)
     ListUser.push(data)
     localStorage.setItem("ListUser",JSON.stringify(ListUser))
     showSuccessToast("Thêm thành công !")
@@ -259,7 +262,7 @@ function SearchUser(){
                     || (us.fullname === inputSearch.val().trim()) 
                     || (us.address === inputSearch.val().trim()) 
         })
-        if(us !== undefined){
+        if(us.length > 0 ){
             renderListUser(us)
         }
         else{
@@ -348,6 +351,7 @@ function clearData() {
     workplace.value=""
     phoneNumber.value=""
     email.value=""
+    user_id.value = ""
 
 }
 

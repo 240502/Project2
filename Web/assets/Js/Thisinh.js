@@ -233,6 +233,9 @@ form.on("submit",(e)=>{
 
                 handleCreate();
             }
+            else{
+                showErrorToast("Có lỗi!");
+            }
         }
         else{
             handleUpdate();
@@ -427,7 +430,8 @@ function handleSearch(){
                     || (st.diaChi === inputSearch.val().trim()) 
                     || (st.hoten === inputSearch.val().trim()) 
         })
-        if(student !== undefined){
+        console.log(student)
+        if(student.length > 0){
             renderListThiSinh(student)
         }
         else{

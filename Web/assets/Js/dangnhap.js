@@ -16,6 +16,9 @@ listRole_item.forEach(item=>{
         }
         item.classList.add("active");
         clearAllData();
+        showSuccess(inputUsName)
+        showSuccess(inputPassword)
+
        
     }
 })

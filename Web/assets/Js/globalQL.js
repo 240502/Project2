@@ -26,7 +26,7 @@ function renderInfoNav(){
 
   if(RoleId ==1)
   {
-    fullnameNav.html( "Admin");
+    fullnameNav.html( "Super Admin");
     roleName = "Administrator"  
   }
   if(RoleId == 2){

@@ -360,7 +360,7 @@ function handleSearchLop(){
                 || (l.tenLop === inputSearch.val().trim()) 
                 || (l.siSo === inputSearch.val().trim()) 
     })
-    if(lop !== undefined){
+    if(lop.length > 0){
         renderLop(lop)
     }
     else{
